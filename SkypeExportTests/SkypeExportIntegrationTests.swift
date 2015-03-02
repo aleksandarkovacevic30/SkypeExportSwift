@@ -9,7 +9,7 @@
 import Cocoa
 import XCTest
 
-class SkypeExportTests: XCTestCase {
+class SkypeExportIntegrationTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -23,6 +23,7 @@ class SkypeExportTests: XCTestCase {
     
     func testExample() {
         // This is an example of a functional test case.
+        
         XCTAssert(true, "Pass")
     }
     

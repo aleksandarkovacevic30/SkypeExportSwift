@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C0F05865-F52C-4D8D-A62D-87B73A572259</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SkypeExport</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2E30E9BD15FB325AD99AF937A6913F83DB58B2EE</key>
+		<string>https://github.com/renesto/SkypeExportSwift.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SkypeExport.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2E30E9BD15FB325AD99AF937A6913F83DB58B2EE</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/renesto/SkypeExportSwift.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2E30E9BD15FB325AD99AF937A6913F83DB58B2EE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2E30E9BD15FB325AD99AF937A6913F83DB58B2EE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SkypeExportSwift</string>
+		</dict>
+	</array>
+</dict>
+</plist>

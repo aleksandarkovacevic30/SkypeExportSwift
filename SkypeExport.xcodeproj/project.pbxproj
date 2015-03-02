@@ -1,0 +1,523 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EE7F917C1A8B7D9B00868948 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F917B1A8B7D9B00868948 /* AppDelegate.swift */; };
+		EE7F917E1A8B7D9B00868948 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE7F917D1A8B7D9B00868948 /* Images.xcassets */; };
+		EE7F91811A8B7D9B00868948 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE7F917F1A8B7D9B00868948 /* MainMenu.xib */; };
+		EE7F918D1A8B7D9B00868948 /* SkypeExportIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F918C1A8B7D9B00868948 /* SkypeExportIntegrationTests.swift */; };
+		EE7F91AB1A8CDD0300868948 /* SkypeFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F91AA1A8CDD0300868948 /* SkypeFileSystem.swift */; };
+		EE7F91AD1A8CDD1700868948 /* SkypeSQLiteDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F91AC1A8CDD1700868948 /* SkypeSQLiteDao.swift */; };
+		EE7F91B41A9D358100868948 /* SQLiteTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F91B31A9D358100868948 /* SQLiteTestCase.swift */; };
+		EEB2AE371AA47A6F0069403E /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB2AE321AA47A150069403E /* SQLite.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EE7F91871A8B7D9B00868948 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE7F916E1A8B7D9B00868948 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE7F91751A8B7D9B00868948;
+			remoteInfo = SkypeExport;
+		};
+		EEB2AE2D1AA47A150069403E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEB2AE261AA47A140069403E /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC3773F319C8CBB3004FCF85;
+			remoteInfo = "SQLite iOS";
+		};
+		EEB2AE2F1AA47A150069403E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEB2AE261AA47A140069403E /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC3773FE19C8CBB3004FCF85;
+			remoteInfo = "SQLite iOS Tests";
+		};
+		EEB2AE311AA47A150069403E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEB2AE261AA47A140069403E /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC37741419C8CC2F004FCF85;
+			remoteInfo = "SQLite Mac";
+		};
+		EEB2AE331AA47A150069403E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEB2AE261AA47A140069403E /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC37741E19C8CC2F004FCF85;
+			remoteInfo = "SQLite Mac Tests";
+		};
+		EEB2AE351AA47A610069403E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEB2AE261AA47A140069403E /* SQLite.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = DC37741319C8CC2F004FCF85;
+			remoteInfo = "SQLite Mac";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EE7F91761A8B7D9B00868948 /* SkypeExport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkypeExport.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE7F917A1A8B7D9B00868948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE7F917B1A8B7D9B00868948 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EE7F917D1A8B7D9B00868948 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EE7F91801A8B7D9B00868948 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		EE7F91861A8B7D9B00868948 /* SkypeExportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkypeExportTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE7F918B1A8B7D9B00868948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE7F918C1A8B7D9B00868948 /* SkypeExportIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkypeExportIntegrationTests.swift; sourceTree = "<group>"; };
+		EE7F91AA1A8CDD0300868948 /* SkypeFileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkypeFileSystem.swift; sourceTree = "<group>"; };
+		EE7F91AC1A8CDD1700868948 /* SkypeSQLiteDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkypeSQLiteDao.swift; sourceTree = "<group>"; };
+		EE7F91B31A9D358100868948 /* SQLiteTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteTestCase.swift; sourceTree = "<group>"; };
+		EEB2AE261AA47A140069403E /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../Downloads/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE7F91731A8B7D9B00868948 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEB2AE371AA47A6F0069403E /* SQLite.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE7F91831A8B7D9B00868948 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE7F916D1A8B7D9B00868948 = {
+			isa = PBXGroup;
+			children = (
+				EE7F91781A8B7D9B00868948 /* SkypeExport */,
+				EE7F91891A8B7D9B00868948 /* SkypeExportTests */,
+				EE7F91771A8B7D9B00868948 /* Products */,
+				EEB2AE261AA47A140069403E /* SQLite.xcodeproj */,
+			);
+			sourceTree = "<group>";
+		};
+		EE7F91771A8B7D9B00868948 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE7F91761A8B7D9B00868948 /* SkypeExport.app */,
+				EE7F91861A8B7D9B00868948 /* SkypeExportTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE7F91781A8B7D9B00868948 /* SkypeExport */ = {
+			isa = PBXGroup;
+			children = (
+				EE7F91A81A8CDCBB00868948 /* SkypeDao */,
+				EE7F917B1A8B7D9B00868948 /* AppDelegate.swift */,
+				EE7F917D1A8B7D9B00868948 /* Images.xcassets */,
+				EE7F917F1A8B7D9B00868948 /* MainMenu.xib */,
+				EE7F91791A8B7D9B00868948 /* Supporting Files */,
+			);
+			path = SkypeExport;
+			sourceTree = "<group>";
+		};
+		EE7F91791A8B7D9B00868948 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE7F917A1A8B7D9B00868948 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE7F91891A8B7D9B00868948 /* SkypeExportTests */ = {
+			isa = PBXGroup;
+			children = (
+				EE7F918C1A8B7D9B00868948 /* SkypeExportIntegrationTests.swift */,
+				EE7F918A1A8B7D9B00868948 /* Supporting Files */,
+				EE7F91B31A9D358100868948 /* SQLiteTestCase.swift */,
+			);
+			path = SkypeExportTests;
+			sourceTree = "<group>";
+		};
+		EE7F918A1A8B7D9B00868948 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE7F918B1A8B7D9B00868948 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE7F91A81A8CDCBB00868948 /* SkypeDao */ = {
+			isa = PBXGroup;
+			children = (
+				EE7F91AA1A8CDD0300868948 /* SkypeFileSystem.swift */,
+				EE7F91AC1A8CDD1700868948 /* SkypeSQLiteDao.swift */,
+			);
+			name = SkypeDao;
+			sourceTree = "<group>";
+		};
+		EEB2AE271AA47A140069403E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EEB2AE2E1AA47A150069403E /* SQLite.framework */,
+				EEB2AE301AA47A150069403E /* SQLite iOS Tests.xctest */,
+				EEB2AE321AA47A150069403E /* SQLite.framework */,
+				EEB2AE341AA47A150069403E /* SQLite Mac Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE7F91751A8B7D9B00868948 /* SkypeExport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE7F91901A8B7D9B00868948 /* Build configuration list for PBXNativeTarget "SkypeExport" */;
+			buildPhases = (
+				EE7F91721A8B7D9B00868948 /* Sources */,
+				EE7F91731A8B7D9B00868948 /* Frameworks */,
+				EE7F91741A8B7D9B00868948 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEB2AE361AA47A610069403E /* PBXTargetDependency */,
+			);
+			name = SkypeExport;
+			productName = SkypeExport;
+			productReference = EE7F91761A8B7D9B00868948 /* SkypeExport.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EE7F91851A8B7D9B00868948 /* SkypeExportTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE7F91931A8B7D9B00868948 /* Build configuration list for PBXNativeTarget "SkypeExportTests" */;
+			buildPhases = (
+				EE7F91821A8B7D9B00868948 /* Sources */,
+				EE7F91831A8B7D9B00868948 /* Frameworks */,
+				EE7F91841A8B7D9B00868948 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE7F91881A8B7D9B00868948 /* PBXTargetDependency */,
+			);
+			name = SkypeExportTests;
+			productName = SkypeExportTests;
+			productReference = EE7F91861A8B7D9B00868948 /* SkypeExportTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE7F916E1A8B7D9B00868948 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Aleksandar Kovacevic";
+				TargetAttributes = {
+					EE7F91751A8B7D9B00868948 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					EE7F91851A8B7D9B00868948 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = EE7F91751A8B7D9B00868948;
+					};
+				};
+			};
+			buildConfigurationList = EE7F91711A8B7D9B00868948 /* Build configuration list for PBXProject "SkypeExport" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EE7F916D1A8B7D9B00868948;
+			productRefGroup = EE7F91771A8B7D9B00868948 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EEB2AE271AA47A140069403E /* Products */;
+					ProjectRef = EEB2AE261AA47A140069403E /* SQLite.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				EE7F91751A8B7D9B00868948 /* SkypeExport */,
+				EE7F91851A8B7D9B00868948 /* SkypeExportTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EEB2AE2E1AA47A150069403E /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = EEB2AE2D1AA47A150069403E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EEB2AE301AA47A150069403E /* SQLite iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLite iOS Tests.xctest";
+			remoteRef = EEB2AE2F1AA47A150069403E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EEB2AE321AA47A150069403E /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = EEB2AE311AA47A150069403E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EEB2AE341AA47A150069403E /* SQLite Mac Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLite Mac Tests.xctest";
+			remoteRef = EEB2AE331AA47A150069403E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE7F91741A8B7D9B00868948 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE7F917E1A8B7D9B00868948 /* Images.xcassets in Resources */,
+				EE7F91811A8B7D9B00868948 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE7F91841A8B7D9B00868948 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE7F91721A8B7D9B00868948 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE7F91AD1A8CDD1700868948 /* SkypeSQLiteDao.swift in Sources */,
+				EE7F917C1A8B7D9B00868948 /* AppDelegate.swift in Sources */,
+				EE7F91AB1A8CDD0300868948 /* SkypeFileSystem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE7F91821A8B7D9B00868948 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE7F918D1A8B7D9B00868948 /* SkypeExportIntegrationTests.swift in Sources */,
+				EE7F91B41A9D358100868948 /* SQLiteTestCase.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EE7F91881A8B7D9B00868948 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE7F91751A8B7D9B00868948 /* SkypeExport */;
+			targetProxy = EE7F91871A8B7D9B00868948 /* PBXContainerItemProxy */;
+		};
+		EEB2AE361AA47A610069403E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SQLite Mac";
+			targetProxy = EEB2AE351AA47A610069403E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EE7F917F1A8B7D9B00868948 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE7F91801A8B7D9B00868948 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EE7F918E1A8B7D9B00868948 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EE7F918F1A8B7D9B00868948 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		EE7F91911A8B7D9B00868948 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SkypeExport/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EE7F91921A8B7D9B00868948 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SkypeExport/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EE7F91941A8B7D9B00868948 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SkypeExportTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SkypeExport.app/Contents/MacOS/SkypeExport";
+			};
+			name = Debug;
+		};
+		EE7F91951A8B7D9B00868948 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SkypeExportTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SkypeExport.app/Contents/MacOS/SkypeExport";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE7F91711A8B7D9B00868948 /* Build configuration list for PBXProject "SkypeExport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE7F918E1A8B7D9B00868948 /* Debug */,
+				EE7F918F1A8B7D9B00868948 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE7F91901A8B7D9B00868948 /* Build configuration list for PBXNativeTarget "SkypeExport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE7F91911A8B7D9B00868948 /* Debug */,
+				EE7F91921A8B7D9B00868948 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE7F91931A8B7D9B00868948 /* Build configuration list for PBXNativeTarget "SkypeExportTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE7F91941A8B7D9B00868948 /* Debug */,
+				EE7F91951A8B7D9B00868948 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EE7F916E1A8B7D9B00868948 /* Project object */;
+}
