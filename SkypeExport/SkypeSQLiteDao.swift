@@ -9,10 +9,10 @@
 import Foundation
 import SQLite
 
-class SkypeDB {
+public class SkypeDB {
     var db: Database;
 
-    init(pathToDB dbPath: String, isBusyHandler: (Int -> Bool)) {
+    public init(pathToDB dbPath: String, isBusyHandler: (Int -> Bool)) {
         
         self.db = Database(dbPath, readonly: true)
         self.db.busy(isBusyHandler)

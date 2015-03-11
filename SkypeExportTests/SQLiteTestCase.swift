@@ -9,9 +9,14 @@
 import Cocoa
 import Foundation
 import XCTest
+import SkypeExport
 
 class SQLiteTestCase: XCTestCase {
 
+    let dbPath: String = "SkypeExportTests/skypeSampleDatabase/renesto.testing/main.db"
+    let dbPathLocked: String = "SkypeExportTests/skypeSampleDatabase/mainLocked.db"
+    
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -22,13 +27,25 @@ class SQLiteTestCase: XCTestCase {
         super.tearDown()
     }
 
-    func testExample() {
+    func testSkypeDummyConnect() {
+        var busy:Bool = false;
+        let skypeDB:SkypeDB = SkypeDB(pathToDB: dbPath,
+            { (input: Int) -> Bool in
+                busy=true;
+            return true;
+        })
+        XCTAssert(busy==false, "Pass")
+    }
+    
+    // TODO check if all chat messages are shown
+    // TODO check if dialog_partner does not exist
+    // TODO check if skype user does not exist
+    // TODO check if path is incorrect
+    // TODO check if
+    
+    func testGetSkypeContacts() {
         // This is an example of a functional test case.
-        let dbPath="/Users/aleksandarkovacevic/Library/Application Support/Skype/gohanuskas/main.db"
-        var checkValidation = NSFileManager.defaultManager()
-        var dbExist=checkValidation.fileExistsAtPath(dbPath);
-        var dbReadable=checkValidation.isReadableFileAtPath(dbPath);
-//        let skypeDB=SkypeDB(pathToDB: dbPath, isBusyHandler)
+//        let skypeDB=SkypeDB(pathToDB: dbPath, nil);
 //        skypeDB.getMessages(fromSkypeUser: "gohanuskas", withDialogPartner: "mjansari21")
         XCTAssert(true, "Pass")
         
