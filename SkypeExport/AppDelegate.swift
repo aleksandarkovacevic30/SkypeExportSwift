@@ -27,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if let filenames=filenamesOpt?.filter(isMacUserName) {
             for item in filenames {
-                macUsername.addItemWithObjectValue(item)
+                macUsername.addItemWithObjectValue(item.filename)
             }
         }
     }
@@ -59,8 +59,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let (filenamesOpt, errorOpt) = contentsOfDirectoryAtPath("/Users/\(macUsername.stringValue)/Library/Application Support/Skype")
         
         if let filenames=filenamesOpt?.filter(isSkypeUserName) {
-            for item in filenames {
-                skypeUserName.addItemWithObjectValue(item)
+            for item:(filename: String, isDir: Bool) in filenames {
+                skypeUserName.addItemWithObjectValue(item.filename)
             }
         }
         
@@ -178,29 +178,38 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
-    func isMacUserName(text: String) -> Bool {
-        return !text.hasPrefix(".") && text != "Shared" && text != "Guest"
+    func isMacUserName(text: String, isDir:Bool) -> Bool {
+        return isDir && !text.hasPrefix(".") && text != "Shared" && text != "Guest"
     }
-    func isSkypeUserName(text: String) -> Bool {
-
-        return text.rangeOfString(".") == nil && !text.hasPrefix("shared_") && text != "Upgrade" && text != "DataRv"
+    func isSkypeUserName(text: String, isDir:Bool) -> Bool {
+        return isDir && !text.hasPrefix("shared_") && text != "Upgrade" && text != "DataRv"
     }
     
+    func isDir(path: String) -> Bool {
+        var error: NSError?
+//        let documentURL : NSURL? = NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.UserDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: true, error: &error)
+        var isDirectory: ObjCBool = ObjCBool(false)
+        NSFileManager.defaultManager().fileExistsAtPath(path, isDirectory: &isDirectory);
+        return isDirectory.boolValue
+    }
     
     // Tuple result
     
     // Get contents of directory at specified path, returning (filenames, nil) or (nil, error)
-    func contentsOfDirectoryAtPath(path: String) -> (filenames: [String]?, error: NSError?) {
-        var error: NSError? = nil
+    func contentsOfDirectoryAtPath(path: String) -> (filenames: [(filename: String, isDir: Bool)]?, error: NSError?) {
+
+        var error: NSError?
+        var result: [(filename: String, isDir: Bool)] = []
         let fileManager = NSFileManager.defaultManager()
+
         let contents = fileManager.contentsOfDirectoryAtPath(path, error: &error)
-        if contents == nil {
-            return (nil, error)
-        }
-        else {
+        if contents != nil  {
             let filenames = contents as [String]
-            return (filenames, nil)
+            for filename in filenames {
+                    result += [(filename: filename, isDir: isDir(path+"/"+filename))]
+            }
         }
+        return (result,nil);
     }
   
     

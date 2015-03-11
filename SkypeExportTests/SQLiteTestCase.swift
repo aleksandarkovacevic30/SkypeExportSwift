@@ -14,7 +14,6 @@ import SkypeExport
 class SQLiteTestCase: XCTestCase {
 
     let dbPath: String = "SkypeExportTests/skypeSampleDatabase/renesto.testing/main.db"
-    let dbPathLocked: String = "SkypeExportTests/skypeSampleDatabase/mainLocked.db"
     
     
     override func setUp() {

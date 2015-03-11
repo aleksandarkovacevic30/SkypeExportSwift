@@ -48,7 +48,10 @@ public class SkypeDB {
         return result;
         
     }
-    
+    /* todo
+    modify the query to the new one
+    select author, datetime(timestamp, 'unixepoch', 'localtime'), edited_timestamp, body_xml from Messages where convo_id in (select id from Conversations where identity = '$2');
+*/
     func getMessages(fromSkypeUser skypeUser:String, withDialogPartner diaPartner: String) -> [(from:String, to:String, timestamp:String, message:String)] {
         println("input: skypeUser - \(skypeUser) , dialogPartner - \(diaPartner)")
         var result:[(from:String, to:String, timestamp:String, message:String)]=[]

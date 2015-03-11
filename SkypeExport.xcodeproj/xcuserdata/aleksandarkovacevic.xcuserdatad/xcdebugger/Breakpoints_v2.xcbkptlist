@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SkypeExport/SkypeSQLiteDao.swift"
-            timestampString = "447798549.951527"
+            timestampString = "447801065.217853"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "SkypeDB"
             landmarkType = "3">
             <Locations>
