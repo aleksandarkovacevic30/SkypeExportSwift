@@ -28,26 +28,27 @@ class SQLiteTestCase: XCTestCase {
     }
 
     func testSkypeDummyConnect() {
-        var busy:Bool = false;
-        var error:Bool =false;
+        var busyResult: Bool = false
+        var errorResult: SkypeDB.ERRORS=SkypeDB.ERRORS.NONE
+        
         let skypeDBfail:SkypeDB = SkypeDB(pathToDB: "",
             { (input: Int) -> Bool in
-                busy=true;
+                busyResult=true;
                 return true;
-            },{ (error: String) -> Void in
-                busy=true;
-                return true;
+            },{ (error: SkypeDB.ERRORS) -> Void in
+                errorResult=error;
         })
         
-        print(skypeDBfail)
-        XCTAssert(skypeDBfail, "Pass")
+        XCTAssert(errorResult==SkypeDB.ERRORS.DB_FILE_NOT_FOUND, "Pass")
         
         let skypeDB:SkypeDB = SkypeDB(pathToDB: dbPath,
             { (input: Int) -> Bool in
-                busy=true;
+                busyResult=true;
             return true;
+            },{ (error: SkypeDB.ERRORS) -> Void in
+                errorResult=error;
         })
-        XCTAssert(busy==false, "Pass")
+        XCTAssert(busyResult==false, "Pass")
     }
     
     // TODO check if all chat messages are shown

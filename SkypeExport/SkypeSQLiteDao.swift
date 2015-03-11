@@ -13,6 +13,7 @@ public class SkypeDB {
     public enum ERRORS {
         case DATABASE_NOT_LOADED
         case DB_FILE_NOT_FOUND
+        case NONE
     }
     var db: Database?;
     public init(pathToDB dbPath: String, isBusyHandler: (Int -> Bool), errorHandler: (ERRORS -> Void)) {
