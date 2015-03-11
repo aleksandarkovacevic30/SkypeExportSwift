@@ -29,6 +29,19 @@ class SQLiteTestCase: XCTestCase {
 
     func testSkypeDummyConnect() {
         var busy:Bool = false;
+        var error:Bool =false;
+        let skypeDBfail:SkypeDB = SkypeDB(pathToDB: "",
+            { (input: Int) -> Bool in
+                busy=true;
+                return true;
+            },{ (error: String) -> Void in
+                busy=true;
+                return true;
+        })
+        
+        print(skypeDBfail)
+        XCTAssert(skypeDBfail, "Pass")
+        
         let skypeDB:SkypeDB = SkypeDB(pathToDB: dbPath,
             { (input: Int) -> Bool in
                 busy=true;

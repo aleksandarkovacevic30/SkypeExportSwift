@@ -10,48 +10,61 @@ import Foundation
 import SQLite
 
 public class SkypeDB {
-    var db: Database;
-
-    public init(pathToDB dbPath: String, isBusyHandler: (Int -> Bool)) {
-        
-        self.db = Database(dbPath, readonly: true)
-        self.db.busy(isBusyHandler)
+    public enum ERRORS {
+        case DATABASE_NOT_LOADED
+        case DB_FILE_NOT_FOUND
+    }
+    var db: Database?;
+    public init(pathToDB dbPath: String, isBusyHandler: (Int -> Bool), errorHandler: (ERRORS -> Void)) {
+        if (NSFileManager.defaultManager().fileExistsAtPath(dbPath)){
+            self.db = Database(dbPath, readonly: true)
+            if let dbase = self.db {
+                dbase.busy(isBusyHandler)
+            } else {
+                errorHandler(ERRORS.DATABASE_NOT_LOADED)
+            }
+        } else {
+            errorHandler(ERRORS.DB_FILE_NOT_FOUND)
+        }
     }
     
     func getSkypeContacts(fromSkypeUser SkypeUser:String) -> [String] {
-        let contacts=db["Contacts"]
-        //select skypename from Contacts where type=1;
-        let skypename = Expression<String?>("skypename")
-        let type = Expression<Int?>("type")
         var result:[String]=[]
-        let query = contacts.select(skypename)           // SELECT "email" FROM "users"
-            .filter(type == 1)     // WHERE "name" IS NOT NULL
-            .order(skypename.asc) // ORDER BY "email" DESC, "name"
-        
-        for row in query {
-            result += ["\(row[skypename]!)"]
-            // id: 1, name: Optional("Alice"), email: alice@mac.com
+        if let dbase = self.db {
+            let contacts=dbase["Contacts"]
+            //select skypename from Contacts where type=1;
+            let skypename = Expression<String?>("skypename")
+            let type = Expression<Int?>("type")
+            let query = contacts.select(skypename)           // SELECT "email" FROM "users"
+                .filter(type == 1)     // WHERE "name" IS NOT NULL
+                .order(skypename.asc) // ORDER BY "email" DESC, "name"
+            
+            for row in query {
+                result += ["\(row[skypename]!)"]
+                // id: 1, name: Optional("Alice"), email: alice@mac.com
+            }
         }
-        
         return result;
         
     }
     
     func getMessages(fromSkypeUser skypeUser:String, withDialogPartner diaPartner: String) -> [(from:String, to:String, timestamp:String, message:String)] {
         println("input: skypeUser - \(skypeUser) , dialogPartner - \(diaPartner)")
-        let messages=db["Messages"]
-        let author = Expression<String?>("author")
-        let dialog_partner = Expression<String?>("dialog_partner")
-        let timeInEpochs = Expression<Int?>("timestamp")
-        let body = Expression<String?>("body_xml")
         var result:[(from:String, to:String, timestamp:String, message:String)]=[]
-        let query = messages.select(author,dialog_partner,timeInEpochs,body)           // SELECT "email" FROM "users"
-            .filter(dialog_partner == diaPartner)     // WHERE "name" IS NOT NULL
-            .order(timeInEpochs.desc) // ORDER BY "email" DESC, "name"
+        if let dbase=self.db {
+            let messages=dbase["Messages"]
+            let author = Expression<String?>("author")
+            let dialog_partner = Expression<String?>("dialog_partner")
+            let timeInEpochs = Expression<Int?>("timestamp")
+            let body = Expression<String?>("body_xml")
+            let query = messages.select(author,dialog_partner,timeInEpochs,body)           // SELECT "email" FROM "users"
+                .filter(dialog_partner == diaPartner)     // WHERE "name" IS NOT NULL
+                .order(timeInEpochs.desc) // ORDER BY "email" DESC, "name"
         
-        for message in query {
-                result += [(from: "\(message[author]!)", to: "\(message[dialog_partner]!)", timestamp: "\(message[timeInEpochs]!)", message: "\(message[body]!)")]
+            for message in query {
+                    result += [(from: "\(message[author]!)", to: "\(message[dialog_partner]!)", timestamp: "\(message[timeInEpochs]!)", message: "\(message[body]!)")]
             // id: 1, name: Optional("Alice"), email: alice@mac.com
+            }
         }
         
         return result;
