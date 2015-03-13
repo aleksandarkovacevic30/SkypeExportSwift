@@ -50,19 +50,28 @@ class SQLiteTestCase: XCTestCase {
         XCTAssert(busyResult==false, "Pass")
     }
     
+    func testGetSkypeContacts() {
+        let skypeDB:SkypeDB = SkypeDB(pathToDB: dbPath,
+            { (input: Int) -> Bool in
+                return true;
+            },{ (error: SkypeDB.ERRORS) -> Void in
+        })
+        
+        
+        //Test regular case
+        if skypeDB.lastError==SkypeDB.ERRORS.NONE {
+            var result=skypeDB.getSkypeContacts(fromSkypeUser:"renesto.testing")
+        }
+        XCTAssert(true, "Pass")
+        
+    }
+    
     // TODO check if all chat messages are shown
     // TODO check if dialog_partner does not exist
     // TODO check if skype user does not exist
     // TODO check if path is incorrect
     // TODO check if
     
-    func testGetSkypeContacts() {
-        // This is an example of a functional test case.
-//        let skypeDB=SkypeDB(pathToDB: dbPath, nil);
-//        skypeDB.getMessages(fromSkypeUser: "gohanuskas", withDialogPartner: "mjansari21")
-        XCTAssert(true, "Pass")
-        
-    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

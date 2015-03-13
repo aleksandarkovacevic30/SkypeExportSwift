@@ -15,21 +15,27 @@ public class SkypeDB {
         case DB_FILE_NOT_FOUND
         case NONE
     }
+    var errorHandler: (ERRORS -> Void)
+    public var lastError: ERRORS
     var db: Database?;
     public init(pathToDB dbPath: String, isBusyHandler: (Int -> Bool), errorHandler: (ERRORS -> Void)) {
+        self.errorHandler=errorHandler
+        self.lastError=ERRORS.NONE
         if (NSFileManager.defaultManager().fileExistsAtPath(dbPath)){
             self.db = Database(dbPath, readonly: true)
             if let dbase = self.db {
                 dbase.busy(isBusyHandler)
             } else {
+                self.lastError=ERRORS.DATABASE_NOT_LOADED
                 errorHandler(ERRORS.DATABASE_NOT_LOADED)
             }
         } else {
+            self.lastError=ERRORS.DB_FILE_NOT_FOUND
             errorHandler(ERRORS.DB_FILE_NOT_FOUND)
         }
     }
     
-    func getSkypeContacts(fromSkypeUser SkypeUser:String) -> [String] {
+    public func getSkypeContacts(fromSkypeUser SkypeUser:String) -> [String] {
         var result:[String]=[]
         if let dbase = self.db {
             let contacts=dbase["Contacts"]
