@@ -68,8 +68,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func getSkypeContacts(sender: AnyObject) {
         let dbPath="/Users/\(macUsername.stringValue)/Library/Application Support/Skype/\(skypeUserName.stringValue)/main.db"
-        let skypeDB=SkypeDB(pathToDB: dbPath, isBusyHandler,errorHandler);
-        let users=skypeDB.getSkypeContacts(fromSkypeUser: skypeUserName.stringValue)
+        let skypeDB=SkypeDB(skypeUser: skypeUserName.stringValue, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "");
+        let users=skypeDB.getSkypeContacts()
         for user in users {
             skypeContacts.addItemWithObjectValue("\(user)")
         }
@@ -78,8 +78,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     
     @IBAction func loadSkypeMessages(sender: AnyObject) {
-        let dbPath="/Users/\(macUsername.stringValue)/Library/Application Support/Skype/\(skypeUserName.stringValue)/main.db"
-        let skypeDB=SkypeDB(pathToDB: dbPath, isBusyHandler,errorHandler);
+        let skypeDB=SkypeDB(skypeUser: skypeUserName.stringValue, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "");
         let messages=skypeDB.getMessages(fromSkypeUser: skypeUserName.stringValue, withDialogPartner: skypeContacts.stringValue)
         var result:String="";
         for message in messages {
@@ -108,7 +107,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             var TheFile = chosenfile?.path!
             
             let dbPath="/Users/\(macUsername.stringValue)/Library/Application Support/Skype/\(skypeUserName.stringValue)/main.db"
-            let skypeDB=SkypeDB(pathToDB: dbPath, isBusyHandler,errorHandler);
+            let skypeDB=SkypeDB(skypeUser: dbPath, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "");
             let messages=skypeDB.getMessages(fromSkypeUser: skypeUserName.stringValue, withDialogPartner: skypeContacts.stringValue)
             
             let exporter = SkypeExporterOutput()
@@ -148,7 +147,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             var TheFile = chosenfile?.path!
             
             let dbPath="/Users/\(macUsername.stringValue)/Library/Application Support/Skype/\(skypeUserName.stringValue)/main.db"
-            let skypeDB=SkypeDB(pathToDB: dbPath, isBusyHandler,errorHandler);
+            let skypeDB=SkypeDB(skypeUser: skypeUserName.stringValue, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "");
             let messages=skypeDB.getMessages(fromSkypeUser: skypeUserName.stringValue, withDialogPartner: skypeContacts.stringValue)
             
             let exporter = SkypeExporterOutput()

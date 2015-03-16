@@ -13,18 +13,33 @@ public class SkypeDB {
     public enum ERRORS {
         case DATABASE_NOT_LOADED
         case DB_FILE_NOT_FOUND
+        case DB_NON_EXISTING_SKYPENAME
         case NONE
     }
+    var skypeUser: String
     var errorHandler: (ERRORS -> Void)
     public var lastError: ERRORS
     var db: Database?;
-    public init(pathToDB dbPath: String, isBusyHandler: (Int -> Bool), errorHandler: (ERRORS -> Void)) {
+    
+    public init(skypeUser skypeuser: String, isBusyHandler: (Int -> Bool), errorHandler: (ERRORS -> Void),debugPath: String) {
+        self.skypeUser=skypeuser
         self.errorHandler=errorHandler
         self.lastError=ERRORS.NONE
-        if (NSFileManager.defaultManager().fileExistsAtPath(dbPath)){
-            self.db = Database(dbPath, readonly: true)
+        var userDirPath=getUserDir()
+
+        var path: String
+        if debugPath != "" {
+           path = debugPath
+        } else {
+            path = "\(userDirPath)/Library/Application Support/Skype/\(skypeuser)/main.db"
+        }
+        
+        
+        if (NSFileManager.defaultManager().fileExistsAtPath(path)){
+            self.db = Database(path, readonly: true)
             if let dbase = self.db {
                 dbase.busy(isBusyHandler)
+                errorHandler(ERRORS.NONE)
             } else {
                 self.lastError=ERRORS.DATABASE_NOT_LOADED
                 errorHandler(ERRORS.DATABASE_NOT_LOADED)
@@ -35,16 +50,16 @@ public class SkypeDB {
         }
     }
     
-    public func getSkypeContacts(fromSkypeUser SkypeUser:String) -> [String] {
+    public func getSkypeContacts() -> [String] {
         var result:[String]=[]
         if let dbase = self.db {
             let contacts=dbase["Contacts"]
             //select skypename from Contacts where type=1;
             let skypename = Expression<String?>("skypename")
             let type = Expression<Int?>("type")
-            let query = contacts.select(skypename)           // SELECT "email" FROM "users"
-                .filter(type == 1)     // WHERE "name" IS NOT NULL
-                .order(skypename.asc) // ORDER BY "email" DESC, "name"
+            let query = contacts.select(skypename)
+                .filter(type == 1)
+                .order(skypename.asc)
             
             for row in query {
                 result += ["\(row[skypename]!)"]

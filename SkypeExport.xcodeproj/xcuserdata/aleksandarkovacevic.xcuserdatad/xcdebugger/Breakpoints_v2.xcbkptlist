@@ -6,123 +6,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SkypeExport/SkypeFileSystem.swift"
+            timestampString = "448234747.733331"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "saveToHTML(usingSelectedPath:messageTuples:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SkypeExport/SkypeSQLiteDao.swift"
-            timestampString = "447840801.405895"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "SkypeDB"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SkypeExport.SkypeDB.db.getter : SQLite.Database"
-                  moduleName = "SkypeExport"
-                  urlString = "file:///Users/aleksandarkovacevic/Documents/skypeexport/SkypeExport/SkypeExport/SkypeSQLiteDao.swift"
-                  timestampString = "445526020.497992"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SkypeExport.SkypeDB.db.setter : SQLite.Database"
-                  moduleName = "SkypeExport"
-                  urlString = "file:///Users/aleksandarkovacevic/Documents/skypeexport/SkypeExport/SkypeExport/SkypeSQLiteDao.swift"
-                  timestampString = "445526020.498193"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SkypeExport.SkypeDB.db.materializeForSet : SQLite.Database"
-                  moduleName = "SkypeExport"
-                  urlString = "file:///Users/aleksandarkovacevic/Documents/skypeexport/SkypeExport/SkypeExport/SkypeSQLiteDao.swift"
-                  timestampString = "445526020.498339"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "SkypeExportTests/SQLiteTestCase.swift"
-            timestampString = "447840792.056044"
+            timestampString = "448236927.364461"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "testGetSkypeContacts()"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SkypeExportTests/SQLiteTestCase.swift"
-            timestampString = "447840811.246403"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "testGetSkypeContacts()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SkypeExportTests.SQLiteTestCase.testGetSkypeContacts (SkypeExportTests.SQLiteTestCase)() -&gt; ()"
-                  moduleName = "SkypeExportTests"
-                  urlString = "file:///Users/aleksandarkovacevic/Documents/SkypeExportSwift/SkypeExportTests/SQLiteTestCase.swift"
-                  timestampString = "447840811.248606"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "364">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SkypeExportTests.SQLiteTestCase.(testGetSkypeContacts (SkypeExportTests.SQLiteTestCase) -&gt; () -&gt; ()).(implicit closure #1)"
-                  moduleName = "SkypeExportTests"
-                  urlString = "file:///Users/aleksandarkovacevic/Documents/SkypeExportSwift/SkypeExportTests/SQLiteTestCase.swift"
-                  timestampString = "447840811.248871"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

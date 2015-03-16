@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE41BA501AB78B2900D18CCD /* main.db in Resources */ = {isa = PBXBuildFile; fileRef = EE41BA4F1AB78B2900D18CCD /* main.db */; };
 		EE7F917C1A8B7D9B00868948 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F917B1A8B7D9B00868948 /* AppDelegate.swift */; };
 		EE7F917E1A8B7D9B00868948 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE7F917D1A8B7D9B00868948 /* Images.xcassets */; };
 		EE7F91811A8B7D9B00868948 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE7F917F1A8B7D9B00868948 /* MainMenu.xib */; };
@@ -15,22 +16,6 @@
 		EE7F91AD1A8CDD1700868948 /* SkypeSQLiteDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F91AC1A8CDD1700868948 /* SkypeSQLiteDao.swift */; };
 		EE7F91B41A9D358100868948 /* SQLiteTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F91B31A9D358100868948 /* SQLiteTestCase.swift */; };
 		EEB2AE371AA47A6F0069403E /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB2AE321AA47A150069403E /* SQLite.framework */; };
-		EEB2AE611AA5CC050069403E /* bistats.db in Resources */ = {isa = PBXBuildFile; fileRef = EEB2AE3A1AA5CC050069403E /* bistats.db */; };
-		EEB2AE621AA5CC050069403E /* 8e6dc27e63436757.dat in Resources */ = {isa = PBXBuildFile; fileRef = EEB2AE3E1AA5CC050069403E /* 8e6dc27e63436757.dat */; };
-		EEB2AE631AA5CC050069403E /* config.lck in Resources */ = {isa = PBXBuildFile; fileRef = EEB2AE401AA5CC050069403E /* config.lck */; };
-		EEB2AE641AA5CC050069403E /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = EEB2AE411AA5CC050069403E /* config.xml */; };
-		EEB2AE651AA5CC050069403E /* dc.db in Resources */ = {isa = PBXBuildFile; fileRef = EEB2AE421AA5CC050069403E /* dc.db */; };
-		EEB2AE661AA5CC050069403E /* ecache0 in Resources */ = {isa = PBXBuildFile; fileRef = EEB2AE441AA5CC050069403E /* ecache0 */; };
-		EEB2AE671AA5CC050069403E /* cookies.dat in Resources */ = {isa = PBXBuildFile; fileRef = EEB2AE461AA5CC050069403E /* cookies.dat */; };
-		EEB2AE681AA5CC050069403E /* keyval.db in Resources */ = {isa = PBXBuildFile; fileRef = EEB2AE471AA5CC050069403E /* keyval.db */; };
-		EEB2AE691AA5CC050069403E /* main.db in Resources */ = {isa = PBXBuildFile; fileRef = EEB2AE491AA5CC050069403E /* main.db */; };
-		EEB2AE6A1AA5CC050069403E /* cache_db.db in Resources */ = {isa = PBXBuildFile; fileRef = EEB2AE4E1AA5CC050069403E /* cache_db.db */; };
-		EEB2AE6B1AA5CC050069403E /* storage_db.db in Resources */ = {isa = PBXBuildFile; fileRef = EEB2AE521AA5CC050069403E /* storage_db.db */; };
-		EEB2AE6C1AA5CC050069403E /* msn.db in Resources */ = {isa = PBXBuildFile; fileRef = EEB2AE551AA5CC050069403E /* msn.db */; };
-		EEB2AE6D1AA5CC050069403E /* qik_main.db in Resources */ = {isa = PBXBuildFile; fileRef = EEB2AE571AA5CC050069403E /* qik_main.db */; };
-		EEB2AE6E1AA5CC050069403E /* streamlist in Resources */ = {isa = PBXBuildFile; fileRef = EEB2AE5B1AA5CC050069403E /* streamlist */; };
-		EEB2AE6F1AA5CC050069403E /* SKFullTextIndex.invertedIndex in Resources */ = {isa = PBXBuildFile; fileRef = EEB2AE5C1AA5CC050069403E /* SKFullTextIndex.invertedIndex */; };
-		EEB2AE701AA5CC050069403E /* statistics.db in Resources */ = {isa = PBXBuildFile; fileRef = EEB2AE5D1AA5CC050069403E /* statistics.db */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE41BA4F1AB78B2900D18CCD /* main.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = main.db; path = Resources/main.db; sourceTree = "<group>"; };
 		EE7F91761A8B7D9B00868948 /* SkypeExport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkypeExport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE7F917A1A8B7D9B00868948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE7F917B1A8B7D9B00868948 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,22 +77,6 @@
 		EE7F91AC1A8CDD1700868948 /* SkypeSQLiteDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkypeSQLiteDao.swift; sourceTree = "<group>"; };
 		EE7F91B31A9D358100868948 /* SQLiteTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteTestCase.swift; sourceTree = "<group>"; };
 		EEB2AE261AA47A140069403E /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../Downloads/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
-		EEB2AE3A1AA5CC050069403E /* bistats.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = bistats.db; sourceTree = "<group>"; };
-		EEB2AE3E1AA5CC050069403E /* 8e6dc27e63436757.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = 8e6dc27e63436757.dat; sourceTree = "<group>"; };
-		EEB2AE401AA5CC050069403E /* config.lck */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.lck; sourceTree = "<group>"; };
-		EEB2AE411AA5CC050069403E /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
-		EEB2AE421AA5CC050069403E /* dc.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = dc.db; sourceTree = "<group>"; };
-		EEB2AE441AA5CC050069403E /* ecache0 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ecache0; sourceTree = "<group>"; };
-		EEB2AE461AA5CC050069403E /* cookies.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = cookies.dat; sourceTree = "<group>"; };
-		EEB2AE471AA5CC050069403E /* keyval.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = keyval.db; sourceTree = "<group>"; };
-		EEB2AE491AA5CC050069403E /* main.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = main.db; path = SkypeExportTests/skypeSampleDatabase/renesto.testing/main.db; sourceTree = SOURCE_ROOT; };
-		EEB2AE4E1AA5CC050069403E /* cache_db.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = cache_db.db; sourceTree = "<group>"; };
-		EEB2AE521AA5CC050069403E /* storage_db.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = storage_db.db; sourceTree = "<group>"; };
-		EEB2AE551AA5CC050069403E /* msn.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = msn.db; sourceTree = "<group>"; };
-		EEB2AE571AA5CC050069403E /* qik_main.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = qik_main.db; sourceTree = "<group>"; };
-		EEB2AE5B1AA5CC050069403E /* streamlist */ = {isa = PBXFileReference; lastKnownFileType = file; path = streamlist; sourceTree = "<group>"; };
-		EEB2AE5C1AA5CC050069403E /* SKFullTextIndex.invertedIndex */ = {isa = PBXFileReference; lastKnownFileType = file; path = SKFullTextIndex.invertedIndex; sourceTree = "<group>"; };
-		EEB2AE5D1AA5CC050069403E /* statistics.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = statistics.db; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +101,7 @@
 		EE7F916D1A8B7D9B00868948 = {
 			isa = PBXGroup;
 			children = (
-				EEB2AE381AA5CC050069403E /* skypeSampleDatabase */,
+				EE41BA4F1AB78B2900D18CCD /* main.db */,
 				EE7F91781A8B7D9B00868948 /* SkypeExport */,
 				EE7F91891A8B7D9B00868948 /* SkypeExportTests */,
 				EE7F91771A8B7D9B00868948 /* Products */,
@@ -204,222 +174,6 @@
 				EEB2AE341AA47A150069403E /* SQLite Mac Tests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		EEB2AE381AA5CC050069403E /* skypeSampleDatabase */ = {
-			isa = PBXGroup;
-			children = (
-				EEB2AE391AA5CC050069403E /* renesto.testing */,
-			);
-			name = skypeSampleDatabase;
-			path = SkypeExportTests/skypeSampleDatabase;
-			sourceTree = "<group>";
-		};
-		EEB2AE391AA5CC050069403E /* renesto.testing */ = {
-			isa = PBXGroup;
-			children = (
-				EEB2AE3A1AA5CC050069403E /* bistats.db */,
-				EEB2AE3B1AA5CC050069403E /* chatsync */,
-				EEB2AE401AA5CC050069403E /* config.lck */,
-				EEB2AE411AA5CC050069403E /* config.xml */,
-				EEB2AE421AA5CC050069403E /* dc.db */,
-				EEB2AE431AA5CC050069403E /* ecache */,
-				EEB2AE451AA5CC050069403E /* httpfe */,
-				EEB2AE471AA5CC050069403E /* keyval.db */,
-				EEB2AE481AA5CC050069403E /* logs */,
-				EEB2AE491AA5CC050069403E /* main.db */,
-				EEB2AE4A1AA5CC050069403E /* media */,
-				EEB2AE4B1AA5CC050069403E /* media_messaging */,
-				EEB2AE541AA5CC050069403E /* mmanager */,
-				EEB2AE551AA5CC050069403E /* msn.db */,
-				EEB2AE561AA5CC050069403E /* qikdb */,
-				EEB2AE591AA5CC050069403E /* settings */,
-				EEB2AE5A1AA5CC050069403E /* simcache */,
-				EEB2AE5C1AA5CC050069403E /* SKFullTextIndex.invertedIndex */,
-				EEB2AE5D1AA5CC050069403E /* statistics.db */,
-				EEB2AE5E1AA5CC050069403E /* thmanager */,
-				EEB2AE5F1AA5CC050069403E /* thumbnails */,
-				EEB2AE601AA5CC050069403E /* voicemail */,
-			);
-			path = renesto.testing;
-			sourceTree = "<group>";
-		};
-		EEB2AE3B1AA5CC050069403E /* chatsync */ = {
-			isa = PBXGroup;
-			children = (
-				EEB2AE3C1AA5CC050069403E /* 31 */,
-				EEB2AE3D1AA5CC050069403E /* 8e */,
-				EEB2AE3F1AA5CC050069403E /* b2 */,
-			);
-			path = chatsync;
-			sourceTree = "<group>";
-		};
-		EEB2AE3C1AA5CC050069403E /* 31 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = 31;
-			sourceTree = "<group>";
-		};
-		EEB2AE3D1AA5CC050069403E /* 8e */ = {
-			isa = PBXGroup;
-			children = (
-				EEB2AE3E1AA5CC050069403E /* 8e6dc27e63436757.dat */,
-			);
-			path = 8e;
-			sourceTree = "<group>";
-		};
-		EEB2AE3F1AA5CC050069403E /* b2 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = b2;
-			sourceTree = "<group>";
-		};
-		EEB2AE431AA5CC050069403E /* ecache */ = {
-			isa = PBXGroup;
-			children = (
-				EEB2AE441AA5CC050069403E /* ecache0 */,
-			);
-			path = ecache;
-			sourceTree = "<group>";
-		};
-		EEB2AE451AA5CC050069403E /* httpfe */ = {
-			isa = PBXGroup;
-			children = (
-				EEB2AE461AA5CC050069403E /* cookies.dat */,
-			);
-			path = httpfe;
-			sourceTree = "<group>";
-		};
-		EEB2AE481AA5CC050069403E /* logs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = logs;
-			sourceTree = "<group>";
-		};
-		EEB2AE4A1AA5CC050069403E /* media */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = media;
-			sourceTree = "<group>";
-		};
-		EEB2AE4B1AA5CC050069403E /* media_messaging */ = {
-			isa = PBXGroup;
-			children = (
-				EEB2AE4C1AA5CC050069403E /* media_cache */,
-				EEB2AE501AA5CC050069403E /* storage_db */,
-			);
-			path = media_messaging;
-			sourceTree = "<group>";
-		};
-		EEB2AE4C1AA5CC050069403E /* media_cache */ = {
-			isa = PBXGroup;
-			children = (
-				EEB2AE4D1AA5CC050069403E /* asyncdb */,
-			);
-			path = media_cache;
-			sourceTree = "<group>";
-		};
-		EEB2AE4D1AA5CC050069403E /* asyncdb */ = {
-			isa = PBXGroup;
-			children = (
-				EEB2AE4E1AA5CC050069403E /* cache_db.db */,
-				EEB2AE4F1AA5CC050069403E /* tmp */,
-			);
-			path = asyncdb;
-			sourceTree = "<group>";
-		};
-		EEB2AE4F1AA5CC050069403E /* tmp */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = tmp;
-			sourceTree = "<group>";
-		};
-		EEB2AE501AA5CC050069403E /* storage_db */ = {
-			isa = PBXGroup;
-			children = (
-				EEB2AE511AA5CC050069403E /* asyncdb */,
-			);
-			path = storage_db;
-			sourceTree = "<group>";
-		};
-		EEB2AE511AA5CC050069403E /* asyncdb */ = {
-			isa = PBXGroup;
-			children = (
-				EEB2AE521AA5CC050069403E /* storage_db.db */,
-				EEB2AE531AA5CC050069403E /* tmp */,
-			);
-			path = asyncdb;
-			sourceTree = "<group>";
-		};
-		EEB2AE531AA5CC050069403E /* tmp */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = tmp;
-			sourceTree = "<group>";
-		};
-		EEB2AE541AA5CC050069403E /* mmanager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = mmanager;
-			sourceTree = "<group>";
-		};
-		EEB2AE561AA5CC050069403E /* qikdb */ = {
-			isa = PBXGroup;
-			children = (
-				EEB2AE571AA5CC050069403E /* qik_main.db */,
-				EEB2AE581AA5CC050069403E /* tmp */,
-			);
-			path = qikdb;
-			sourceTree = "<group>";
-		};
-		EEB2AE581AA5CC050069403E /* tmp */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = tmp;
-			sourceTree = "<group>";
-		};
-		EEB2AE591AA5CC050069403E /* settings */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = settings;
-			sourceTree = "<group>";
-		};
-		EEB2AE5A1AA5CC050069403E /* simcache */ = {
-			isa = PBXGroup;
-			children = (
-				EEB2AE5B1AA5CC050069403E /* streamlist */,
-			);
-			path = simcache;
-			sourceTree = "<group>";
-		};
-		EEB2AE5E1AA5CC050069403E /* thmanager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = thmanager;
-			sourceTree = "<group>";
-		};
-		EEB2AE5F1AA5CC050069403E /* thumbnails */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = thumbnails;
-			sourceTree = "<group>";
-		};
-		EEB2AE601AA5CC050069403E /* voicemail */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = voicemail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -549,22 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEB2AE6C1AA5CC050069403E /* msn.db in Resources */,
-				EEB2AE691AA5CC050069403E /* main.db in Resources */,
-				EEB2AE661AA5CC050069403E /* ecache0 in Resources */,
-				EEB2AE681AA5CC050069403E /* keyval.db in Resources */,
-				EEB2AE631AA5CC050069403E /* config.lck in Resources */,
-				EEB2AE6B1AA5CC050069403E /* storage_db.db in Resources */,
-				EEB2AE6A1AA5CC050069403E /* cache_db.db in Resources */,
-				EEB2AE621AA5CC050069403E /* 8e6dc27e63436757.dat in Resources */,
-				EEB2AE671AA5CC050069403E /* cookies.dat in Resources */,
-				EEB2AE651AA5CC050069403E /* dc.db in Resources */,
-				EEB2AE611AA5CC050069403E /* bistats.db in Resources */,
-				EEB2AE6D1AA5CC050069403E /* qik_main.db in Resources */,
-				EEB2AE701AA5CC050069403E /* statistics.db in Resources */,
-				EEB2AE6F1AA5CC050069403E /* SKFullTextIndex.invertedIndex in Resources */,
-				EEB2AE6E1AA5CC050069403E /* streamlist in Resources */,
-				EEB2AE641AA5CC050069403E /* config.xml in Resources */,
+				EE41BA501AB78B2900D18CCD /* main.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,8 +13,12 @@ import SkypeExport
 
 class SQLiteTestCase: XCTestCase {
 
-    let dbPath: String = "SkypeExportTests/skypeSampleDatabase/renesto.testing/main.db"
     
+    var skypeDB: SkypeDB = SkypeDB(skypeUser: "renesto.testing",
+        isBusyHandler: { (input: Int) -> Bool in
+            return true;
+        },errorHandler: { (error: SkypeDB.ERRORS) -> Void in
+        },debugPath: "Resources/main.db")
     
     override func setUp() {
         super.setUp()
@@ -30,39 +34,29 @@ class SQLiteTestCase: XCTestCase {
         var busyResult: Bool = false
         var errorResult: SkypeDB.ERRORS=SkypeDB.ERRORS.NONE
         
-        let skypeDBfail:SkypeDB = SkypeDB(pathToDB: "",
-            { (input: Int) -> Bool in
+        let skypeDBfail:SkypeDB = SkypeDB(skypeUser: "renesto.testing",
+            isBusyHandler: { (input: Int) -> Bool in
                 busyResult=true;
                 return true;
-            },{ (error: SkypeDB.ERRORS) -> Void in
+            },errorHandler: { (error: SkypeDB.ERRORS) -> Void in
                 errorResult=error;
-        })
+        },debugPath: "falsePath")
         
-        XCTAssert(errorResult==SkypeDB.ERRORS.DB_FILE_NOT_FOUND, "Pass")
-        
-        let skypeDB:SkypeDB = SkypeDB(pathToDB: dbPath,
-            { (input: Int) -> Bool in
-                busyResult=true;
-            return true;
-            },{ (error: SkypeDB.ERRORS) -> Void in
-                errorResult=error;
-        })
-        XCTAssert(busyResult==false, "Pass")
+        XCTAssert(skypeDBfail.lastError==SkypeDB.ERRORS.DB_FILE_NOT_FOUND, "Pass")
     }
     
     func testGetSkypeContacts() {
-        let skypeDB:SkypeDB = SkypeDB(pathToDB: dbPath,
-            { (input: Int) -> Bool in
-                return true;
-            },{ (error: SkypeDB.ERRORS) -> Void in
-        })
         
-        
+        var expected:[String]=[]
+        expected += ["echo123"]
+        expected += ["gohanuskas"]
+        var result:[String]=[]
         //Test regular case
-        if skypeDB.lastError==SkypeDB.ERRORS.NONE {
-            var result=skypeDB.getSkypeContacts(fromSkypeUser:"renesto.testing")
-        }
-        XCTAssert(true, "Pass")
+        XCTAssert(skypeDB.lastError==SkypeDB.ERRORS.NONE, "Pass")
+
+        result=skypeDB.getSkypeContacts()
+
+        XCTAssert(result==expected, "Pass")
         
     }
     
