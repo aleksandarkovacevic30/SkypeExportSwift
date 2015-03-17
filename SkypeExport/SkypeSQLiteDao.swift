@@ -25,13 +25,13 @@ public class SkypeDB {
         self.skypeUser=skypeuser
         self.errorHandler=errorHandler
         self.lastError=ERRORS.NONE
-        var userDirPath=getUserDir()
+        var userDirPath=getAppSupportDir()
 
         var path: String
         if debugPath != "" {
            path = debugPath
         } else {
-            path = "\(userDirPath)/Library/Application Support/Skype/\(skypeuser)/main.db"
+            path = "\(userDirPath!)/Skype/\(skypeuser)/main.db"
         }
         
         
@@ -39,7 +39,6 @@ public class SkypeDB {
             self.db = Database(path, readonly: true)
             if let dbase = self.db {
                 dbase.busy(isBusyHandler)
-                errorHandler(ERRORS.NONE)
             } else {
                 self.lastError=ERRORS.DATABASE_NOT_LOADED
                 errorHandler(ERRORS.DATABASE_NOT_LOADED)

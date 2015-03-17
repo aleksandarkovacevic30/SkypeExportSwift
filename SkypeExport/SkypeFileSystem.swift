@@ -45,10 +45,10 @@ class SkypeExporterOutput {
     }
     
 }
-public func getUserDir() -> String? {
+public func getAppSupportDir() -> String? {
     var error: NSError?
     
-    let userURL : NSURL? = NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.UserDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: true, error: &error)
+    let userURL : NSURL? = NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.ApplicationSupportDirectory, inDomain: NSSearchPathDomainMask.AllDomainsMask, appropriateForURL: nil, create: true, error: &error)
     return userURL?.path
 }
 

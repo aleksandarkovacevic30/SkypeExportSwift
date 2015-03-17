@@ -14,7 +14,6 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SkypeExport" customModuleProvider="target">
             <connections>
-                <outlet property="macUsername" destination="NCu-YU-Ppc" id="kkW-hj-v3w"/>
                 <outlet property="skypeContacts" destination="iJM-r0-UZY" id="FZB-eO-ZFu"/>
                 <outlet property="skypeUserName" destination="UTy-fC-aX5" id="qnT-jZ-zxE"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
@@ -705,32 +704,6 @@
                             <action selector="loadSkypeMessages:" target="Voe-Tx-rLC" id="22j-si-aGJ"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yBX-qC-ZBI">
-                        <rect key="frame" x="297" y="401" width="169" height="32"/>
-                        <buttonCell key="cell" type="push" title="Load Skype Users List" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mMD-VE-4ey">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="loadSkypeUsers:" target="Voe-Tx-rLC" id="lqB-0Z-tpr"/>
-                        </connections>
-                    </button>
-                    <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NCu-YU-Ppc">
-                        <rect key="frame" x="158" y="407" width="112" height="26"/>
-                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="4mh-Hm-Uev">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </comboBoxCell>
-                    </comboBox>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="esP-Hv-n2B">
-                        <rect key="frame" x="43" y="413" width="112" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Mac Username" id="wj7-KV-GDk">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UTy-fC-aX5">
                         <rect key="frame" x="158" y="319" width="112" height="26"/>
                         <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="juC-42-rd7">
@@ -739,14 +712,6 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </comboBoxCell>
                     </comboBox>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K3b-jh-Ysr">
-                        <rect key="frame" x="20" y="444" width="718" height="23"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" title="Step 1. Choose the username you use in your Macbook" id="Q7p-OL-300">
-                            <font key="font" metaFont="system" size="15"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dYs-3Y-fda">
                         <rect key="frame" x="20" y="351" width="718" height="23"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" title="Step 2. Choose the skype username" id="ZqV-oh-eU1">

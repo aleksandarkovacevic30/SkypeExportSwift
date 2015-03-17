@@ -19,15 +19,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var dialogPartner: NSTextField!
 
     @IBOutlet weak var skypeContacts: NSComboBox!
-    @IBOutlet weak var macUsername: NSComboBox!
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
+        let skypePath:String = "\(getAppSupportDir()!)/Skype"
+        let (filenamesOpt, errorOpt) = contentsOfDirectoryAtPath(skypePath)
         
-        let (filenamesOpt, errorOpt) = contentsOfDirectoryAtPath("/Users")
-        
-        if let filenames=filenamesOpt?.filter(isMacUserName) {
-            for item in filenames {
-                macUsername.addItemWithObjectValue(item.filename)
+        if let filenames=filenamesOpt?.filter(isSkypeUserName) {
+            for item:(filename: String, isDir: Bool) in filenames {
+                skypeUserName.addItemWithObjectValue(item.filename)
             }
         }
     }
@@ -37,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         myPopup.messageText = "Skype Database is Locked"
         myPopup.informativeText = "You need to quit skype before using Skype Exporter."
         myPopup.runModal()
-        return true;
+        return true
     }
     
     func errorHandler(error: SkypeDB.ERRORS) -> Void {
@@ -53,21 +52,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         myPopup.runModal()
     }
-
-
-    @IBAction func loadSkypeUsers(sender: NSButton) {
-        let (filenamesOpt, errorOpt) = contentsOfDirectoryAtPath("/Users/\(macUsername.stringValue)/Library/Application Support/Skype")
-        
-        if let filenames=filenamesOpt?.filter(isSkypeUserName) {
-            for item:(filename: String, isDir: Bool) in filenames {
-                skypeUserName.addItemWithObjectValue(item.filename)
-            }
-        }
-        
-    }
     
     @IBAction func getSkypeContacts(sender: AnyObject) {
-        let dbPath="/Users/\(macUsername.stringValue)/Library/Application Support/Skype/\(skypeUserName.stringValue)/main.db"
+        let dbPath="\(getAppSupportDir()!)/Skype/\(skypeUserName.stringValue)/main.db"
         let skypeDB=SkypeDB(skypeUser: skypeUserName.stringValue, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "");
         let users=skypeDB.getSkypeContacts()
         for user in users {
@@ -106,7 +93,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         {
             var TheFile = chosenfile?.path!
             
-            let dbPath="/Users/\(macUsername.stringValue)/Library/Application Support/Skype/\(skypeUserName.stringValue)/main.db"
+            let dbPath="\(getAppSupportDir()!)/Skype/\(skypeUserName.stringValue)/main.db"
             let skypeDB=SkypeDB(skypeUser: dbPath, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "");
             let messages=skypeDB.getMessages(fromSkypeUser: skypeUserName.stringValue, withDialogPartner: skypeContacts.stringValue)
             
@@ -146,7 +133,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         {
             var TheFile = chosenfile?.path!
             
-            let dbPath="/Users/\(macUsername.stringValue)/Library/Application Support/Skype/\(skypeUserName.stringValue)/main.db"
+            let dbPath="\(getAppSupportDir()!)/Skype/\(skypeUserName.stringValue)/main.db"
             let skypeDB=SkypeDB(skypeUser: skypeUserName.stringValue, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "");
             let messages=skypeDB.getMessages(fromSkypeUser: skypeUserName.stringValue, withDialogPartner: skypeContacts.stringValue)
             
