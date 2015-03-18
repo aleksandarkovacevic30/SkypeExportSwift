@@ -70,7 +70,7 @@ public class SkypeDB {
     }
     /* todo
     modify the query to the new one
-    select author, datetime(timestamp, 'unixepoch', 'localtime'), edited_timestamp, body_xml from Messages where convo_id in (select id from Conversations where identity = '$2');
+    select author, timestamp, edited_timestamp, body_xml from Messages where convo_id in (select id from Conversations where identity = '$2');
 */
     func getMessages(fromSkypeUser skypeUser:String, withDialogPartner diaPartner: String) -> [(from:String, to:String, timestamp:String, message:String)] {
         println("input: skypeUser - \(skypeUser) , dialogPartner - \(diaPartner)")
@@ -84,9 +84,14 @@ public class SkypeDB {
             let query = messages.select(author,dialog_partner,timeInEpochs,body)           // SELECT "email" FROM "users"
                 .filter(dialog_partner == diaPartner)     // WHERE "name" IS NOT NULL
                 .order(timeInEpochs.desc) // ORDER BY "email" DESC, "name"
-        
+            var formattedTimestamp:String="";
             for message in query {
-                    result += [(from: "\(message[author]!)", to: "\(message[dialog_partner]!)", timestamp: "\(message[timeInEpochs]!)", message: "\(message[body]!)")]
+                var epochs:Double = Double(message[timeInEpochs]!);
+                formattedTimestamp=printFormattedDate(NSDate(timeIntervalSince1970: epochs))
+                    result += [(from: "\(message[author]!)",
+                        to: "\(message[dialog_partner]!)",
+                        timestamp: "\(formattedTimestamp)",
+                        message: "\(message[body]!)")]
             // id: 1, name: Optional("Alice"), email: alice@mac.com
             }
         }

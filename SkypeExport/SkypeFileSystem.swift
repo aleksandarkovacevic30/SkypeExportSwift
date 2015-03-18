@@ -58,3 +58,11 @@ public func getCurrDir() -> String? {
     let userURL : NSURL? = NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.ApplicationDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: true, error: &error)
     return userURL?.path
 }
+func printFormattedDate(date: NSDate) -> String {
+    let dateformat = NSDateFormatter()
+    dateformat.timeStyle = .ShortStyle
+    dateformat.dateStyle = .MediumStyle
+
+    var stringDate = dateformat.stringFromDate(date)
+    return stringDate
+}

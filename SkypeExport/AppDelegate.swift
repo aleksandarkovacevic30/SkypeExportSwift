@@ -53,7 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         myPopup.runModal()
     }
     
-    @IBAction func getSkypeContacts(sender: AnyObject) {
+    @IBAction func showSkypeContacts(sender: AnyObject) {
         let dbPath="\(getAppSupportDir()!)/Skype/\(skypeUserName.stringValue)/main.db"
         let skypeDB=SkypeDB(skypeUser: skypeUserName.stringValue, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "");
         let users=skypeDB.getSkypeContacts()
