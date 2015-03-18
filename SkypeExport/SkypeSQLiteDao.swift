@@ -70,9 +70,46 @@ public class SkypeDB {
     }
     /* todo
     modify the query to the new one
-    select author, timestamp, edited_timestamp, body_xml from Messages where convo_id in (select id from Conversations where identity = '$2');
+    select author, timestamp, body_xml from Messages where convo_id in (select id from Conversations where identity = '$2');
 */
-    func getMessages(fromSkypeUser skypeUser:String, withDialogPartner diaPartner: String) -> [(from:String, to:String, timestamp:String, message:String)] {
+    func getMessages(fromSkypeUser skypeUser:String, withDialogPartner diaPartner: String) -> [(from:String, timestamp:String, message:String)] {
+        println("input: skypeUser - \(skypeUser) , dialogPartner - \(diaPartner)")
+        var result:[(from:String, timestamp:String, message:String)]=[]
+        if let dbase=self.db {
+            let messages=dbase["Messages"]
+            let conversations=dbase["Conversations"]
+            let cid=Expression<Int?>("id")
+            let identity=Expression<String?>("identity")
+            let cids = conversations.select(cid)
+                .filter(identity == diaPartner)
+            var convoids = [Int?]()
+            for id in cids {
+                convoids.append(Int(id[cid]!));
+            }
+            let convo_id=Expression<Int?>("convo_id")
+            let author = Expression<String?>("author")
+            let dialog_partner = Expression<String?>("dialog_partner")
+            let timeInEpochs = Expression<Int?>("timestamp")
+            let body = Expression<String?>("body_xml")
+            let query = messages.select(author,dialog_partner,timeInEpochs,body,convo_id)           // SELECT "email" FROM "users"
+                .filter(contains(convoids,convo_id))     // WHERE "name" IS NOT NULL
+                .order(timeInEpochs.desc) // ORDER BY "email" DESC, "name"
+            var formattedTimestamp:String="";
+            for message in query {
+                var epochs:Double = Double(message[timeInEpochs]!);
+                formattedTimestamp=printFormattedDate(NSDate(timeIntervalSince1970: epochs))
+                result += [(from: "\(message[author]!)",
+                    timestamp: "\(formattedTimestamp)",
+                    message: "\(message[body]!)")]
+                // id: 1, name: Optional("Alice"), email: alice@mac.com
+            }
+        }
+        
+        return result;
+    }
+
+    
+    func getMessages2(fromSkypeUser skypeUser:String, withDialogPartner diaPartner: String) -> [(from:String, to:String, timestamp:String, message:String)] {
         println("input: skypeUser - \(skypeUser) , dialogPartner - \(diaPartner)")
         var result:[(from:String, to:String, timestamp:String, message:String)]=[]
         if let dbase=self.db {

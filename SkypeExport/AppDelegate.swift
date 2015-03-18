@@ -69,7 +69,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let messages=skypeDB.getMessages(fromSkypeUser: skypeUserName.stringValue, withDialogPartner: skypeContacts.stringValue)
         var result:String="";
         for message in messages {
-            result.extend("from: \(message.from), to: \(message.to), timestamp: \(message.timestamp), message: \(message.message)")
+            result.extend("from: \(message.from), timestamp: \(message.timestamp), message: \(message.message)")
             // id: 1, name: Optional("Alice"), email: alice@mac.com
         }
         
