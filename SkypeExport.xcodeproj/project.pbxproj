@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EE41BA501AB78B2900D18CCD /* main.db in Resources */ = {isa = PBXBuildFile; fileRef = EE41BA4F1AB78B2900D18CCD /* main.db */; };
+		EE41BA521AF25B1500D18CCD /* ContactsColumns.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE41BA511AF25B1500D18CCD /* ContactsColumns.plist */; };
+		EE41BA531AF25B1500D18CCD /* ContactsColumns.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE41BA511AF25B1500D18CCD /* ContactsColumns.plist */; };
 		EE7F917C1A8B7D9B00868948 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F917B1A8B7D9B00868948 /* AppDelegate.swift */; };
 		EE7F917E1A8B7D9B00868948 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE7F917D1A8B7D9B00868948 /* Images.xcassets */; };
 		EE7F91811A8B7D9B00868948 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE7F917F1A8B7D9B00868948 /* MainMenu.xib */; };
@@ -65,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		EE41BA4F1AB78B2900D18CCD /* main.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = main.db; path = Resources/main.db; sourceTree = "<group>"; };
+		EE41BA511AF25B1500D18CCD /* ContactsColumns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ContactsColumns.plist; path = ../ContactsColumns.plist; sourceTree = "<group>"; };
 		EE7F91761A8B7D9B00868948 /* SkypeExport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkypeExport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE7F917A1A8B7D9B00868948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE7F917B1A8B7D9B00868948 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +136,7 @@
 		EE7F91791A8B7D9B00868948 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EE41BA511AF25B1500D18CCD /* ContactsColumns.plist */,
 				EE7F917A1A8B7D9B00868948 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -296,6 +300,7 @@
 			files = (
 				EE7F917E1A8B7D9B00868948 /* Images.xcassets in Resources */,
 				EE7F91811A8B7D9B00868948 /* MainMenu.xib in Resources */,
+				EE41BA521AF25B1500D18CCD /* ContactsColumns.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE41BA501AB78B2900D18CCD /* main.db in Resources */,
+				EE41BA531AF25B1500D18CCD /* ContactsColumns.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

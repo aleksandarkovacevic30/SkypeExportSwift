@@ -66,7 +66,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func loadSkypeMessages(sender: AnyObject) {
         let skypeDB=SkypeDB(skypeUser: skypeUserName.stringValue, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "");
-        let messages=skypeDB.getMessages(fromSkypeUser: skypeUserName.stringValue, withDialogPartner: skypeContacts.stringValue)
+        let messages=skypeDB.getMessagesForSkypeContact(dialogPartner: skypeContacts.stringValue)
         var result:String="";
         for message in messages {
             result.extend("from: \(message.from), timestamp: \(message.timestamp), message: \(message.message)")
@@ -95,7 +95,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             let dbPath="\(getAppSupportDir()!)/Skype/\(skypeUserName.stringValue)/main.db"
             let skypeDB=SkypeDB(skypeUser: dbPath, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "");
-            let messages=skypeDB.getMessages(fromSkypeUser: skypeUserName.stringValue, withDialogPartner: skypeContacts.stringValue)
+            let messages=skypeDB.getMessagesForSkypeContact(dialogPartner: skypeContacts.stringValue)
             
             let exporter = SkypeExporterOutput()
             
@@ -135,7 +135,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             let dbPath="\(getAppSupportDir()!)/Skype/\(skypeUserName.stringValue)/main.db"
             let skypeDB=SkypeDB(skypeUser: skypeUserName.stringValue, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "");
-            let messages=skypeDB.getMessages(fromSkypeUser: skypeUserName.stringValue, withDialogPartner: skypeContacts.stringValue)
+            let messages=skypeDB.getMessagesForSkypeContact(dialogPartner: skypeContacts.stringValue)
             
             let exporter = SkypeExporterOutput()
             
