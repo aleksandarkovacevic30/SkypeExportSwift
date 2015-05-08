@@ -55,8 +55,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func showSkypeContacts(sender: AnyObject) {
         let dbPath="\(getAppSupportDir()!)/Skype/\(skypeUserName.stringValue)/main.db"
-        let skypeDB=SkypeDB(skypeUser: skypeUserName.stringValue, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "");
-        let users=skypeDB.getSkypeContacts()
+        let skypeDB=SkypeDB(skypeUser: skypeUserName.stringValue, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "")
+        let contactsManager:ContactsManager=ContactsManager(skypeDB.db)
+        let users=contactsManager.getSkypeContacts()
         for user in users {
             skypeContacts.addItemWithObjectValue("\(user)")
         }
