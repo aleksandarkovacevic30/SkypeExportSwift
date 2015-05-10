@@ -31,6 +31,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
+    @IBAction func loadContactOptionsDialog(sender: AnyObject) {
+        
+    }
     func isBusyHandler(Check: Int) -> Bool {
         let myPopup:NSAlert = NSAlert()
         myPopup.messageText = "Skype Database is Locked"
@@ -56,7 +59,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func showSkypeContacts(sender: AnyObject) {
         let dbPath="\(getAppSupportDir()!)/Skype/\(skypeUserName.stringValue)/main.db"
         let skypeDB=SkypeDB(skypeUser: skypeUserName.stringValue, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "")
-        let contactsManager:ContactsManager=ContactsManager(skypeDB.db)
+        let contactsManager:ContactsManager=ContactsManager(skypedb: skypeDB)
         let users=contactsManager.getSkypeContacts()
         for user in users {
             skypeContacts.addItemWithObjectValue("\(user)")
@@ -67,7 +70,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func loadSkypeMessages(sender: AnyObject) {
         let skypeDB=SkypeDB(skypeUser: skypeUserName.stringValue, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "");
-        let messages=skypeDB.getMessagesForSkypeContact(dialogPartner: skypeContacts.stringValue)
+/*        let messages=skypeDB.getMessagesForSkypeContact(dialogPartner: skypeContacts.stringValue)
         var result:String="";
         for message in messages {
             result.extend("from: \(message.from), timestamp: \(message.timestamp), message: \(message.message)")
@@ -79,7 +82,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         myPopup.informativeText = "not here"
         myPopup.runModal()
         println("\(skypeContacts.stringValue)")
-        println("\(result)")
+        println("\(result)")*/
     }
     @IBAction func exportAsCSV(sender: AnyObject) {
         var myFiledialog: NSSavePanel = NSSavePanel()
@@ -96,7 +99,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             let dbPath="\(getAppSupportDir()!)/Skype/\(skypeUserName.stringValue)/main.db"
             let skypeDB=SkypeDB(skypeUser: dbPath, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "");
-            let messages=skypeDB.getMessagesForSkypeContact(dialogPartner: skypeContacts.stringValue)
+/*            let messages=skypeDB.getMessagesForSkypeContact(dialogPartner: skypeContacts.stringValue)
             
             let exporter = SkypeExporterOutput()
             
@@ -114,7 +117,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             myPopup.runModal()
 
-
+*/
         }
         else
         {
@@ -136,7 +139,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             let dbPath="\(getAppSupportDir()!)/Skype/\(skypeUserName.stringValue)/main.db"
             let skypeDB=SkypeDB(skypeUser: skypeUserName.stringValue, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "");
-            let messages=skypeDB.getMessagesForSkypeContact(dialogPartner: skypeContacts.stringValue)
+/*           let messages=skypeDB.getMessagesForSkypeContact(dialogPartner: skypeContacts.stringValue)
             
             let exporter = SkypeExporterOutput()
             
@@ -153,7 +156,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             
             myPopup.runModal()
-            
+  */          
             
         }
         else

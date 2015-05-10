@@ -18,6 +18,10 @@
 		EE41BA5D1AFD516E00D18CCD /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41BA5B1AFD516E00D18CCD /* ContactsManager.swift */; };
 		EE41BA5F1AFD55AE00D18CCD /* MessagesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41BA5E1AFD55AE00D18CCD /* MessagesManager.swift */; };
 		EE41BA601AFD55AE00D18CCD /* MessagesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41BA5E1AFD55AE00D18CCD /* MessagesManager.swift */; };
+		EE41BA691AFD91A700D18CCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41BA671AFD91A700D18CCD /* ViewController.swift */; };
+		EE41BA6A1AFD91A700D18CCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41BA671AFD91A700D18CCD /* ViewController.swift */; };
+		EE41BA6B1AFD91A700D18CCD /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE41BA681AFD91A700D18CCD /* ViewController.xib */; };
+		EE41BA6C1AFD91A700D18CCD /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE41BA681AFD91A700D18CCD /* ViewController.xib */; };
 		EE7F917C1A8B7D9B00868948 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F917B1A8B7D9B00868948 /* AppDelegate.swift */; };
 		EE7F917E1A8B7D9B00868948 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE7F917D1A8B7D9B00868948 /* Images.xcassets */; };
 		EE7F91811A8B7D9B00868948 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE7F917F1A8B7D9B00868948 /* MainMenu.xib */; };
@@ -80,6 +84,8 @@
 		EE41BA581AFD50EC00D18CCD /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		EE41BA5B1AFD516E00D18CCD /* ContactsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
 		EE41BA5E1AFD55AE00D18CCD /* MessagesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesManager.swift; sourceTree = "<group>"; };
+		EE41BA671AFD91A700D18CCD /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EE41BA681AFD91A700D18CCD /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		EE7F91761A8B7D9B00868948 /* SkypeExport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkypeExport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE7F917A1A8B7D9B00868948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE7F917B1A8B7D9B00868948 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +131,8 @@
 		EE7F916D1A8B7D9B00868948 = {
 			isa = PBXGroup;
 			children = (
+				EE41BA671AFD91A700D18CCD /* ViewController.swift */,
+				EE41BA681AFD91A700D18CCD /* ViewController.xib */,
 				EE41BA4F1AB78B2900D18CCD /* main.db */,
 				EE7F91781A8B7D9B00868948 /* SkypeExport */,
 				EE7F91891A8B7D9B00868948 /* SkypeExportTests */,
@@ -324,6 +332,7 @@
 			files = (
 				EE7F917E1A8B7D9B00868948 /* Images.xcassets in Resources */,
 				EE7F91811A8B7D9B00868948 /* MainMenu.xib in Resources */,
+				EE41BA6B1AFD91A700D18CCD /* ViewController.xib in Resources */,
 				EE41BA521AF25B1500D18CCD /* ContactsColumns.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE41BA501AB78B2900D18CCD /* main.db in Resources */,
+				EE41BA6C1AFD91A700D18CCD /* ViewController.xib in Resources */,
 				EE41BA531AF25B1500D18CCD /* ContactsColumns.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +360,7 @@
 				EE7F917C1A8B7D9B00868948 /* AppDelegate.swift in Sources */,
 				EE41BA5C1AFD516E00D18CCD /* ContactsManager.swift in Sources */,
 				EE7F91AB1A8CDD0300868948 /* SkypeFileSystem.swift in Sources */,
+				EE41BA691AFD91A700D18CCD /* ViewController.swift in Sources */,
 				EE41BA5F1AFD55AE00D18CCD /* MessagesManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +373,7 @@
 				EE41BA5D1AFD516E00D18CCD /* ContactsManager.swift in Sources */,
 				EE41BA5A1AFD50EC00D18CCD /* Message.swift in Sources */,
 				EE7F918D1A8B7D9B00868948 /* SkypeExportIntegrationTests.swift in Sources */,
+				EE41BA6A1AFD91A700D18CCD /* ViewController.swift in Sources */,
 				EE7F91B41A9D358100868948 /* SQLiteTestCase.swift in Sources */,
 				EE41BA601AFD55AE00D18CCD /* MessagesManager.swift in Sources */,
 			);

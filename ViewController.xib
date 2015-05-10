@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ViewController" customModule="SkypeExport" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView identifier="configView" id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D0d-MK-3VJ">
+                    <rect key="frame" x="90" y="336" width="221" height="44"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Skype Exporter" id="GVx-mF-onP">
+                        <font key="font" metaFont="system" size="28"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrc-j9-fsU">
+                    <rect key="frame" x="38" y="160" width="114" height="19"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Username" id="hsY-sN-93V">
+                        <font key="font" metaFont="system" size="15"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9vR-KL-tXS">
+                    <rect key="frame" x="20" y="213" width="372" height="23"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" alignment="center" title="Choose your skype username" id="C3r-5b-e8l">
+                        <font key="font" metaFont="system" size="15"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a6H-sV-jIq">
+                    <rect key="frame" x="20" y="296" width="372" height="30"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Configuration" drawsBackground="YES" id="wGV-9r-slY">
+                        <font key="font" metaFont="system" size="21"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QsG-l1-CV7">
+                    <rect key="frame" x="73" y="32" width="254" height="80"/>
+                    <buttonCell key="cell" type="smallSquare" title="Apply" bezelStyle="smallSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7Nr-if-Juy">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system" size="22"/>
+                    </buttonCell>
+                </button>
+                <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zf2-hp-hhO">
+                    <rect key="frame" x="146" y="154" width="237" height="28"/>
+                    <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="yDV-SP-NVf">
+                        <font key="font" metaFont="system" size="15"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </comboBoxCell>
+                </comboBox>
+            </subviews>
+            <point key="canvasLocation" x="292" y="143"/>
+        </customView>
+        <customView identifier="mainView" id="ooP-gw-yh6">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ytC-B6-dac">
+                    <rect key="frame" x="84" y="287" width="233" height="23"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" title="Your Options" id="Y2b-iq-ONm">
+                        <font key="font" metaFont="system" size="15"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gPf-Ya-6fC">
+                    <rect key="frame" x="90" y="336" width="221" height="44"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Skype Exporter" id="mK4-MG-J2c">
+                        <font key="font" metaFont="system" size="28"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="80k-dC-BuU">
+                    <rect key="frame" x="84" y="108" width="233" height="72"/>
+                    <buttonCell key="cell" type="smallSquare" title="Export Contacts" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aQB-bC-B40">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system" size="22"/>
+                    </buttonCell>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uyp-sM-9aw">
+                    <rect key="frame" x="84" y="19" width="233" height="72"/>
+                    <buttonCell key="cell" type="smallSquare" title="Export Messages" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xpp-Cw-5Je">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system" size="22"/>
+                    </buttonCell>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B7g-QH-jnX">
+                    <rect key="frame" x="84" y="194" width="233" height="72"/>
+                    <buttonCell key="cell" type="smallSquare" title="Configuration" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hKJ-sm-Osz">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system" size="22"/>
+                    </buttonCell>
+                </button>
+            </subviews>
+            <point key="canvasLocation" x="295" y="644"/>
+        </customView>
+        <customView identifier="messagesView" id="yh1-Sn-CZ9">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RXh-8O-f2A">
+                    <rect key="frame" x="45" y="204" width="112" height="28"/>
+                    <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="Zbg-Dp-16S">
+                        <font key="font" metaFont="system" size="16"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </comboBoxCell>
+                </comboBox>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xNg-hi-WP4">
+                    <rect key="frame" x="18" y="238" width="118" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Dialog Partner" id="70g-Ue-xuz">
+                        <font key="font" metaFont="system" size="15"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ayV-tI-qrP">
+                    <rect key="frame" x="90" y="336" width="221" height="44"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Skype Exporter" id="8e3-cj-Lnv">
+                        <font key="font" metaFont="system" size="28"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xdc-S8-s00">
+                    <rect key="frame" x="14" y="296" width="372" height="30"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Export Messages" drawsBackground="YES" id="6qZ-Qh-xyM">
+                        <font key="font" metaFont="system" size="21"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JaV-lr-0oq">
+                    <rect key="frame" x="14" y="263" width="185" height="23"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" title="Load for Single Contact" id="5dc-0y-EG3">
+                        <font key="font" metaFont="system" size="15"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oQU-5W-bBW">
+                    <rect key="frame" x="216" y="263" width="170" height="23"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" title="Step 3. Export As" id="JxV-yG-GuD">
+                        <font key="font" metaFont="system" size="15"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xad-DD-Ll4">
+                    <rect key="frame" x="223" y="140" width="157" height="104"/>
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" truncatesLastVisibleLine="YES" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IZ6-AY-H7s">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <string key="title">Load All 
+Messages</string>
+                        <font key="font" metaFont="system" size="22"/>
+                    </buttonCell>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Oo-QE-KnI">
+                    <rect key="frame" x="14" y="13" width="170" height="72"/>
+                    <buttonCell key="cell" type="smallSquare" title="HTML" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dTS-Nw-TMb">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system" size="22"/>
+                    </buttonCell>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lR9-3Q-9Qa">
+                    <rect key="frame" x="14" y="92" width="372" height="23"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" title="Export As" id="opO-1g-EpS">
+                        <font key="font" metaFont="system" size="15"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N6z-nC-dQX">
+                    <rect key="frame" x="216" y="13" width="170" height="72"/>
+                    <buttonCell key="cell" type="smallSquare" title="CSV" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="teg-eO-FZU">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system" size="22"/>
+                    </buttonCell>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JxG-3e-M9Q">
+                    <rect key="frame" x="24" y="140" width="164" height="54"/>
+                    <buttonCell key="cell" type="smallSquare" title="Load" bezelStyle="smallSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MfG-hi-7gL">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system" size="22"/>
+                    </buttonCell>
+                </button>
+            </subviews>
+            <point key="canvasLocation" x="295" y="1605"/>
+        </customView>
+        <customView identifier="contactsView" id="O0X-yy-fgq">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kul-d6-OT9">
+                    <rect key="frame" x="90" y="336" width="221" height="44"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Skype Exporter" id="PAa-XQ-ML2">
+                        <font key="font" metaFont="system" size="28"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PJZ-0P-46n">
+                    <rect key="frame" x="14" y="296" width="372" height="30"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Export Contacts" drawsBackground="YES" id="aWi-Aj-jTI">
+                        <font key="font" metaFont="system" size="21"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3BP-Mz-bEx">
+                    <rect key="frame" x="14" y="19" width="170" height="72"/>
+                    <buttonCell key="cell" type="smallSquare" title="HTML" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="j1v-FO-gcy">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system" size="22"/>
+                    </buttonCell>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BcH-Sg-Q0c">
+                    <rect key="frame" x="14" y="252" width="372" height="23"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" title="Load All Contacts" id="d7i-hE-Uff">
+                        <font key="font" metaFont="system" size="15"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CR3-RK-zJq">
+                    <rect key="frame" x="14" y="114" width="372" height="23"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" title="Export As" id="8Rv-DE-p4a">
+                        <font key="font" metaFont="system" size="15"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eBY-Xh-rAP">
+                    <rect key="frame" x="216" y="19" width="170" height="72"/>
+                    <buttonCell key="cell" type="smallSquare" title="CSV" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hMN-pQ-mKa">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system" size="22"/>
+                    </buttonCell>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QcP-qQ-7PS">
+                    <rect key="frame" x="84" y="164" width="233" height="72"/>
+                    <buttonCell key="cell" type="smallSquare" title="Load Contacts" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eII-IL-PBy">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system" size="22"/>
+                    </buttonCell>
+                </button>
+            </subviews>
+            <point key="canvasLocation" x="295" y="1138"/>
+        </customView>
+    </objects>
+</document>
