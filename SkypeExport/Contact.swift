@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Contact {
+public class Contact {
     var id: Int?
     var is_permanent: Int?
     var type: Int?

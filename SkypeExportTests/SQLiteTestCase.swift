@@ -9,17 +9,17 @@
 import Cocoa
 import Foundation
 import XCTest
-import SkypeExport
+//import SkypeExport
 
 class SQLiteTestCase: XCTestCase {
 
-    
+    /*
     var skypeDB: SkypeDB = SkypeDB(skypeUser: "renesto.testing",
         isBusyHandler: { (input: Int) -> Bool in
             return true;
         },errorHandler: { (error: SkypeDB.ERRORS) -> Void in
         },debugPath: "Resources/main.db")
-    
+    */
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -29,7 +29,7 @@ class SQLiteTestCase: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-
+/*
     func testSkypeDummyConnect() {
         var busyResult: Bool = false
         var errorResult: SkypeDB.ERRORS=SkypeDB.ERRORS.NONE
@@ -58,7 +58,7 @@ class SQLiteTestCase: XCTestCase {
 
         XCTAssert(result==expected, "Pass")
         
-    }
+    }*/
     
     // TODO check if all chat messages are shown
     // TODO check if dialog_partner does not exist

@@ -7,26 +7,26 @@
 //
 
 import Foundation
+import SQLite
 
-class ContactsManager{
+
+public class ContactsManager{
     public enum CONTACT_TYPE {
         case SKYPE_CONTACT
         case ALL
     }
-
+/*
     
-    var db:Database?
+    var skypeDB:SkypeDB
     
-    init(skypedb:SkypeDB) {
-        if let db=skypedb.db {
-            self.db=db
-        }
+    init(db:SkypeDB?) {
+        self.skypeDB=db
     }
     
     //TODO look for swift hashtable data structure
     public func getContactDetailForSkypeuser(reqid: Int)->Contact{
         var result:Contact
-        if let dbase = self.db {
+        if let dbase = self.skypeDB.db {
             let contacts=dbase["Contacts"]
             //select skypename from Contacts where type=1;
             let id = Expression<Int?>("id")
@@ -134,298 +134,298 @@ class ContactsManager{
             
             for row in query {
                 if let idt=row[id] {
-                    result.id=id
+                    result.id=idt
                 }
                 if let is_permanentt=row[is_permanent] {
-                    result.is_permanent=is_permanent
+                    result.is_permanent=is_permanentt
                 }
                 if let typet=row[type] {
-                    result.type=type
+                    result.type=typet
                 }
                 if let skypenamet=row[skypename] {
-                    result.skypename=skypename
+                    result.skypename=skypenamet
                 }
                 if let pstnnumbert=row[pstnnumber] {
-                    result.pstnnumber=pstnnumber
+                    result.pstnnumber=pstnnumbert
                 }
                 if let aliasest=row[aliases] {
-                    result.aliases=aliases
+                    result.aliases=aliasest
                 }
                 if let fullnamet=row[fullname] {
-                    result.fullname=fullname
+                    result.fullname=fullnamet
                 }
                 if let birthdayt=row[birthday] {
-                    result.birthday=birthday
+                    result.birthday=birthdayt
                 }
                 if let gendert=row[gender] {
-                    result.gender=gender
+                    result.gender=gendert
                 }
                 if let languagest=row[languages] {
-                    result.languages=languages
+                    result.languages=languagest
                 }
                 if let countryt=row[country] {
-                    result.country=country
+                    result.country=countryt
                 }
                 if let provincet=row[province] {
-                    result.province=province
+                    result.province=provincet
                 }
                 if let cityt=row[city] {
-                    result.city=city
+                    result.city=cityt
                 }
                 if let phone_homet=row[phone_home] {
-                    result.phone_home=phone_home
+                    result.phone_home=phone_homet
                 }
                 if let phone_officet=row[phone_office] {
-                    result.phone_office=phone_office
+                    result.phone_office=phone_officet
                 }
                 if let phone_mobilet=row[phone_mobile] {
-                    result.phone_mobile=phone_mobile
+                    result.phone_mobile=phone_mobilet
                 }
                 if let emailst=row[emails] {
-                    result.emails=emails
+                    result.emails=emailst
                 }
                 if let hashed_emailst=row[hashed_emails] {
-                    result.hashed_emails=hashed_emails
+                    result.hashed_emails=hashed_emailst
                 }
                 if let homepaget=row[homepage] {
-                    result.homepage=homepage
+                    result.homepage=homepaget
                 }
                 if let aboutt=row[about] {
-                    result.about=about
+                    result.about=aboutt
                 }
                 if let avatar_imaget=row[avatar_image] {
-                    result.avatar_image=avatar_image
+                    result.avatar_image=avatar_imaget
                 }
                 if let mood_Stringt=row[mood_String] {
-                    result.mood_String=mood_String
+                    result.mood_String=mood_Stringt
                 }
                 if let rich_mood_Stringt=row[rich_mood_String] {
-                    result.rich_mood_String=rich_mood_String
+                    result.rich_mood_String=rich_mood_Stringt
                 }
                 if let timezonet=row[timezone] {
-                    result.timezone=timezone
+                    result.timezone=timezonet
                 }
                 if let capabilitiest=row[capabilities] {
-                    result.capabilities=capabilities
+                    result.capabilities=capabilitiest
                 }
                 if let profile_timestampt=row[profile_timestamp] {
-                    result.profile_timestamp=profile_timestamp
+                    result.profile_timestamp=profile_timestampt
                 }
                 if let nrof_authed_buddiest=row[nrof_authed_buddies] {
-                    result.nrof_authed_buddies=nrof_authed_buddies
+                    result.nrof_authed_buddies=nrof_authed_buddiest
                 }
                 if let ipcountryt=row[ipcountry] {
-                    result.ipcountry=ipcountry
+                    result.ipcountry=ipcountryt
                 }
                 if let avatar_timestampt=row[avatar_timestamp] {
-                    result.avatar_timestamp=avatar_timestamp
+                    result.avatar_timestamp=avatar_timestampt
                 }
                 if let mood_timestampt=row[mood_timestamp] {
-                    result.mood_timestamp=mood_timestamp
+                    result.mood_timestamp=mood_timestampt
                 }
                 if let received_authrequestt=row[received_authrequest] {
-                    result.received_authrequest=received_authrequest
+                    result.received_authrequest=received_authrequestt
                 }
                 if let authreq_timestampt=row[authreq_timestamp] {
-                    result.authreq_timestamp=authreq_timestamp
+                    result.authreq_timestamp=authreq_timestampt
                 }
                 if let lastonline_timestampt=row[lastonline_timestamp] {
-                    result.lastonline_timestamp=lastonline_timestamp
+                    result.lastonline_timestamp=lastonline_timestampt
                 }
                 if let availabilityt=row[availability] {
-                    result.availability=availability
+                    result.availability=availabilityt
                 }
                 if let displaynamet=row[displayname] {
-                    result.displayname=displayname
+                    result.displayname=displaynamet
                 }
                 if let refreshingt=row[refreshing] {
-                    result.refreshing=refreshing
+                    result.refreshing=refreshingt
                 }
                 if let given_authlevelt=row[given_authlevel] {
-                    result.given_authlevel=given_authlevel
+                    result.given_authlevel=given_authlevelt
                 }
                 if let given_displaynamet=row[given_displayname] {
-                    result.given_displayname=given_displayname
+                    result.given_displayname=given_displaynamet
                 }
                 if let assigned_speeddialt=row[assigned_speeddial] {
-                    result.assigned_speeddial=assigned_speeddial
+                    result.assigned_speeddial=assigned_speeddialt
                 }
                 if let assigned_commentt=row[assigned_comment] {
-                    result.assigned_comment=assigned_comment
+                    result.assigned_comment=assigned_commentt
                 }
                 if let alertstringt=row[alertstring] {
-                    result.alertstring=alertstring
+                    result.alertstring=alertstringt
                 }
                 if let lastused_timestampt=row[lastused_timestamp] {
-                    result.lastused_timestamp=lastused_timestamp
+                    result.lastused_timestamp=lastused_timestampt
                 }
                 if let authrequest_countt=row[authrequest_count] {
-                    result.authrequest_count=authrequest_count
+                    result.authrequest_count=authrequest_countt
                 }
                 if let assigned_phone1t=row[assigned_phone1] {
-                    result.assigned_phone1=assigned_phone1
+                    result.assigned_phone1=assigned_phone1t
                 }
                 if let assigned_phone1_labelt=row[assigned_phone1_label] {
-                    result.assigned_phone1_label=assigned_phone1_label
+                    result.assigned_phone1_label=assigned_phone1_labelt
                 }
                 if let assigned_phone2t=row[assigned_phone2] {
-                    result.assigned_phone2=assigned_phone2
+                    result.assigned_phone2=assigned_phone2t
                 }
                 if let assigned_phone2_labelt=row[assigned_phone2_label] {
-                    result.assigned_phone2_label=assigned_phone2_label
+                    result.assigned_phone2_label=assigned_phone2_labelt
                 }
                 if let assigned_phone3t=row[assigned_phone3] {
-                    result.assigned_phone3=assigned_phone3
+                    result.assigned_phone3=assigned_phone3t
                 }
                 if let assigned_phone3_labelt=row[assigned_phone3_label] {
-                    result.assigned_phone3_label=assigned_phone3_label
+                    result.assigned_phone3_label=assigned_phone3_labelt
                 }
                 if let buddystatust=row[buddystatus] {
-                    result.buddystatus=buddystatus
+                    result.buddystatus=buddystatust
                 }
                 if let isauthorizedt=row[isauthorized] {
-                    result.isauthorized=isauthorized
+                    result.isauthorized=isauthorizedt
                 }
                 if let popularity_ordt=row[popularity_ord] {
-                    result.popularity_ord=popularity_ord
+                    result.popularity_ord=popularity_ordt
                 }
                 if let external_idt=row[external_id] {
-                    result.external_id=external_id
+                    result.external_id=external_idt
                 }
                 if let external_system_idt=row[external_system_id] {
-                    result.external_system_id=external_system_id
+                    result.external_system_id=external_system_idt
                 }
                 if let isblockedt=row[isblocked] {
-                    result.isblocked=isblocked
+                    result.isblocked=isblockedt
                 }
                 if let authorization_certificatet=row[authorization_certificate] {
-                    result.authorization_certificate=authorization_certificate
+                    result.authorization_certificate=authorization_certificatet
                 }
                 if let certificate_send_countt=row[certificate_send_count] {
-                    result.certificate_send_count=certificate_send_count
+                    result.certificate_send_count=certificate_send_countt
                 }
                 if let account_modification_serial_nrt=row[account_modification_serial_nr] {
-                    result.account_modification_serial_nr=account_modification_serial_nr
+                    result.account_modification_serial_nr=account_modification_serial_nrt
                 }
                 if let saved_directory_Stringt=row[saved_directory_String] {
-                    result.saved_directory_String=saved_directory_String
+                    result.saved_directory_String=saved_directory_Stringt
                 }
                 if let nr_of_buddiest=row[nr_of_buddies] {
-                    result.nr_of_buddies=nr_of_buddies
+                    result.nr_of_buddies=nr_of_buddiest
                 }
                 if let server_syncedt=row[server_synced] {
-                    result.server_synced=server_synced
+                    result.server_synced=server_syncedt
                 }
                 if let contactlist_trackt=row[contactlist_track] {
-                    result.contactlist_track=contactlist_track
+                    result.contactlist_track=contactlist_trackt
                 }
                 if let last_used_networktimet=row[last_used_networktime] {
-                    result.last_used_networktime=last_used_networktime
+                    result.last_used_networktime=last_used_networktimet
                 }
                 if let authorized_timet=row[authorized_time] {
-                    result.authorized_time=authorized_time
+                    result.authorized_time=authorized_timet
                 }
                 if let sent_authrequestt=row[sent_authrequest] {
-                    result.sent_authrequest=sent_authrequest
+                    result.sent_authrequest=sent_authrequestt
                 }
                 if let sent_authrequest_timet=row[sent_authrequest_time] {
-                    result.sent_authrequest_time=sent_authrequest_time
+                    result.sent_authrequest_time=sent_authrequest_timet
                 }
                 if let sent_authrequest_serialt=row[sent_authrequest_serial] {
-                    result.sent_authrequest_serial=sent_authrequest_serial
+                    result.sent_authrequest_serial=sent_authrequest_serialt
                 }
                 if let buddyStringt=row[buddyString] {
-                    result.buddyString=buddyString
+                    result.buddyString=buddyStringt
                 }
                 if let cbl_futuret=row[cbl_future] {
-                    result.cbl_future=cbl_future
+                    result.cbl_future=cbl_futuret
                 }
                 if let node_capabilitiest=row[node_capabilities] {
-                    result.node_capabilities=node_capabilities
+                    result.node_capabilities=node_capabilitiest
                 }
                 if let revoked_autht=row[revoked_auth] {
-                    result.revoked_auth=revoked_auth
+                    result.revoked_auth=revoked_autht
                 }
                 if let added_in_shared_groupt=row[added_in_shared_group] {
-                    result.added_in_shared_group=added_in_shared_group
+                    result.added_in_shared_group=added_in_shared_groupt
                 }
                 if let in_shared_groupt=row[in_shared_group] {
-                    result.in_shared_group=in_shared_group
+                    result.in_shared_group=in_shared_groupt
                 }
                 if let authreq_historyt=row[authreq_history] {
-                    result.authreq_history=authreq_history
+                    result.authreq_history=authreq_historyt
                 }
                 if let profile_attachmentst=row[profile_attachments] {
-                    result.profile_attachments=profile_attachments
+                    result.profile_attachments=profile_attachmentst
                 }
                 if let stack_versiont=row[stack_version] {
-                    result.stack_version=stack_version
+                    result.stack_version=stack_versiont
                 }
                 if let offline_authreq_idt=row[offline_authreq_id] {
-                    result.offline_authreq_id=offline_authreq_id
+                    result.offline_authreq_id=offline_authreq_idt
                 }
                 if let node_capabilities_andt=row[node_capabilities_and] {
-                    result.node_capabilities_and=node_capabilities_and
+                    result.node_capabilities_and=node_capabilities_andt
                 }
                 if let authreq_crct=row[authreq_crc] {
-                    result.authreq_crc=authreq_crc
+                    result.authreq_crc=authreq_crct
                 }
                 if let authreq_srct=row[authreq_src] {
-                    result.authreq_src=authreq_src
+                    result.authreq_src=authreq_srct
                 }
                 if let pop_scoret=row[pop_score] {
-                    result.pop_score=pop_score
+                    result.pop_score=pop_scoret
                 }
                 if let authreq_nodeinfot=row[authreq_nodeinfo] {
-                    result.authreq_nodeinfo=authreq_nodeinfo
+                    result.authreq_nodeinfo=authreq_nodeinfot
                 }
                 if let main_phonet=row[main_phone] {
-                    result.main_phone=main_phone
+                    result.main_phone=main_phonet
                 }
                 if let unified_servantst=row[unified_servants] {
-                    result.unified_servants=unified_servants
+                    result.unified_servants=unified_servantst
                 }
                 if let phone_home_normalizedt=row[phone_home_normalized] {
-                    result.phone_home_normalized=phone_home_normalized
+                    result.phone_home_normalized=phone_home_normalizedt
                 }
                 if let phone_office_normalizedt=row[phone_office_normalized] {
-                    result.phone_office_normalized=phone_office_normalized
+                    result.phone_office_normalized=phone_office_normalizedt
                 }
                 if let phone_mobile_normalizedt=row[phone_mobile_normalized] {
-                    result.phone_mobile_normalized=phone_mobile_normalized
+                    result.phone_mobile_normalized=phone_mobile_normalizedt
                 }
                 if let sent_authrequest_initmethodt=row[sent_authrequest_initmethod] {
-                    result.sent_authrequest_initmethod=sent_authrequest_initmethod
+                    result.sent_authrequest_initmethod=sent_authrequest_initmethodt
                 }
                 if let authreq_initmethodt=row[authreq_initmethod] {
-                    result.authreq_initmethod=authreq_initmethod
+                    result.authreq_initmethod=authreq_initmethodt
                 }
                 if let verified_emailt=row[verified_email] {
-                    result.verified_email=verified_email
+                    result.verified_email=verified_emailt
                 }
                 if let verified_companyt=row[verified_company] {
-                    result.verified_company=verified_company
+                    result.verified_company=verified_companyt
                 }
                 if let sent_authrequest_extrasbitmaskt=row[sent_authrequest_extrasbitmask] {
-                    result.sent_authrequest_extrasbitmask=sent_authrequest_extrasbitmask
+                    result.sent_authrequest_extrasbitmask=sent_authrequest_extrasbitmaskt
                 }
                 if let liveid_cidt=row[liveid_cid] {
-                    result.liveid_cid=liveid_cid
+                    result.liveid_cid=liveid_cidt
                 }
                 if let extprop_contact_ab_uuidt=row[extprop_contact_ab_uuid] {
-                    result.extprop_contact_ab_uuid=extprop_contact_ab_uuid
+                    result.extprop_contact_ab_uuid=extprop_contact_ab_uuidt
                 }
                 if let extprop_external_datat=row[extprop_external_data] {
-                    result.extprop_external_data=extprop_external_data
+                    result.extprop_external_data=extprop_external_datat
                 }
                 if let extprop_last_sms_numbert=row[extprop_last_sms_number] {
-                    result.extprop_last_sms_number=extprop_last_sms_number
+                    result.extprop_last_sms_number=extprop_last_sms_numbert
                 }
                 if let extprop_viral_upgrade_campaign_idt=row[extprop_viral_upgrade_campaign_id] {
-                    result.extprop_viral_upgrade_campaign_id=extprop_viral_upgrade_campaign_id
+                    result.extprop_viral_upgrade_campaign_id=extprop_viral_upgrade_campaign_idt
                 }
                 if let is_auto_buddyt=row[is_auto_buddy] {
-                    result.is_auto_buddy=is_auto_buddy
+                    result.is_auto_buddy=is_auto_buddyt
                 }
 
 
@@ -437,34 +437,13 @@ class ContactsManager{
 
     public func getAllContactDetails()->[Contact] {
         var results:[Contact]=[]
-        let allIds=getAllContacts()
-        if let ids=allIds {
-            for id in ids {
-                results+=getContactDetailForSkypeuser(id)
-            }
+        let allIds:[Int]=getAllContacts()
+        for conid in allIds {
+            results+=[getContactDetailForSkypeuser(conid)]
         }
         return results
     }
-    
-    public func getSkypeContacts() -> [String] {
-        var result:[String]=[]
-        if let dbase = self.db {
-            let contacts=dbase["Contacts"]
-            //select skypename from Contacts where type=1;
-            let skypename = Expression<String?>("skypename")
-            let type = Expression<Int?>("type")
-            var query = contacts.select(skypename)
-                    .filter(type == 1)
-                    .order(skypename.asc)
-            
-            for row in query {
-                result += ["\(row[skypename]!)"]
-                // id: 1, name: Optional("Alice"), email: alice@mac.com
-            }
-        }
-        return result;
-    }
-    
+        
     public func listAllContactDetailOptions() -> [String]{
         var myDict: NSDictionary?
         if let path = NSBundle.mainBundle().pathForResource("ContactsColumns", ofType: "plist") {
@@ -485,7 +464,7 @@ class ContactsManager{
         let contacts=dbase["Contacts"]
         //select skypename from Contacts where type=1;
         let id = Expression<Int?>("id")
-        var query = contacts.select(skypename)
+        var query = contacts.select(id)
             .order(id.asc)
         
         for row in query {
@@ -498,5 +477,5 @@ class ContactsManager{
     return result;
     }
     
-    
+    */
 }

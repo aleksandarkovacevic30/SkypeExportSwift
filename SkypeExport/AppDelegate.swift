@@ -11,26 +11,80 @@ import Foundation
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-    @IBOutlet weak var window: NSWindow!
-
-    @IBOutlet weak var skypeUserName: NSComboBox!
+ 
+    //@IBOutlet weak var skypeUserName: NSComboBox!
     
-    @IBOutlet weak var dialogPartner: NSTextField!
+  //  @IBOutlet weak var dialogPartner: NSTextField!
 
-    @IBOutlet weak var skypeContacts: NSComboBox!
+    //@IBOutlet weak var skypeContacts: NSComboBox!
+    
+    @IBOutlet weak var window: NSWindow!
+    
+    @IBOutlet weak var ExportContactsView: NSView!
+    
+    @IBOutlet weak var mainView: NSView!
+    @IBOutlet weak var configView: NSView!
+    @IBOutlet weak var exportMsgsView: NSView!
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        // Insert code here to initialize your application
+        mainView.hidden=false
+        configView.hidden=true
+        ExportContactsView.hidden=true
+        exportMsgsView.hidden=true
+        /*
         // Insert code here to initialize your application
         let skypePath:String = "\(getAppSupportDir()!)/Skype"
         let (filenamesOpt, errorOpt) = contentsOfDirectoryAtPath(skypePath)
         
         if let filenames=filenamesOpt?.filter(isSkypeUserName) {
-            for item:(filename: String, isDir: Bool) in filenames {
-                skypeUserName.addItemWithObjectValue(item.filename)
-            }
+        for item:(filename: String, isDir: Bool) in filenames {
+        skypeUserName.addItemWithObjectValue(item.filename)
         }
+        }
+        */
+
+    }
+    
+    @IBAction func goBackToMainView(sender: AnyObject) {
+        mainView.hidden=false
+        configView.hidden=true
+        ExportContactsView.hidden=true
+        exportMsgsView.hidden=true
+    }
+    @IBAction func goToExportMsgView(sender: AnyObject) {
+        mainView.hidden=true
+        configView.hidden=true
+        ExportContactsView.hidden=true
+        exportMsgsView.hidden=false
+    }
+    @IBAction func goToConfigView(sender: AnyObject) {
+        mainView.hidden=true
+        configView.hidden=false
+        ExportContactsView.hidden=true
+        exportMsgsView.hidden=true
+    }
+    
+    @IBAction func goToExportContsView(sender: AnyObject) {
+        mainView.hidden=true
+        configView.hidden=true
+        ExportContactsView.hidden=false
+        exportMsgsView.hidden=true
+        
+    }
+    
+    
+    func applicationWillTerminate(aNotification: NSNotification) {
+        // Insert code here to tear down your application
     }
 
+    
+    
+    
+        
+
+
+    /*
+    
     @IBAction func loadContactOptionsDialog(sender: AnyObject) {
         
     }
@@ -59,8 +113,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func showSkypeContacts(sender: AnyObject) {
         let dbPath="\(getAppSupportDir()!)/Skype/\(skypeUserName.stringValue)/main.db"
         let skypeDB=SkypeDB(skypeUser: skypeUserName.stringValue, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "")
-        let contactsManager:ContactsManager=ContactsManager(skypedb: skypeDB)
-        let users=contactsManager.getSkypeContacts()
+        let messagesManager:MessagesManager=MessagesManager(skypedb: skypeDB)
+        let users=messagesManager.getSkypeContacts()
         for user in users {
             skypeContacts.addItemWithObjectValue("\(user)")
         }
@@ -201,7 +255,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         return (result,nil);
     }
-  
+ */
     
     
     

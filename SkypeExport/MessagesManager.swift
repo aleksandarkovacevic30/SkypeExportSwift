@@ -7,121 +7,20 @@
 //
 
 import Foundation
+import SQLite
 
-class MessagesManager {
+public class MessagesManager {
 
-    public func getSkypeContacts() -> [String] {
-        var result:[String]=[]
-        if let dbase = self.db {
-            let contacts=dbase["Contacts"]
-            //select skypename from Contacts where type=1;
-            let skypename = Expression<String?>("skypename")
-            let type = Expression<Int?>("type")
-            let query = contacts.select(skypename)
-                .filter(type == 1)
-                .order(skypename.asc)
-            
-            for row in query {
-                result += ["\(row[skypename]!)"]
-                // id: 1, name: Optional("Alice"), email: alice@mac.com
-            }
-        }
-        return result;
-        
-    }
+    /*
+    var db:Database?
     
-    func listAllContactDetailOptions() -> [String]{
-        var myDict: NSDictionary?
-        if let path = NSBundle.mainBundle().pathForResource("ContactsColumns", ofType: "plist") {
-            myDict = NSDictionary(contentsOfFile: path)
+    init(skypedb:SkypeDB) {
+        if let db=skypedb.db {
+            self.db=db
         }
-        var results:[String] = []
-        if let dict = myDict {
-            for value in dict.allValues {
-                results += ["\(value)"]
-            }
-        }
-        return results
     }
-    
-    //TODO look for swift hashtable data structure
-    public func getContactDetailsForSkypeContact(name: String, havingContactDetails:[String])->[([(String,String)])]{
-        let query=prepareContactDetails(forSkypeName: name, havingContactDetails: havingContactDetails)
-        var result:[([(String,String)])]=[]
-        if let dbase = self.db {
-            let stmt = dbase.prepare(query)
-            for row in stmt {
-                var newRow:[(String,String)]=[]
-                var i:Int = 0;
-                for col in havingContactDetails {
-                    newRow+=[("\(col)","\(row[i])")]
-                    i++
-                }
-            }
-        }
-        return result
-    }
-    
-    func prepareContactDetails(forSkypeName skypename: String, havingContactDetails contactDetails:[String]) -> String{
-        let select="SELECT"
-        let from="FROM CONTACTS"
-        var whereQuery="WHERE skypename=\""
-        var finalQuery=""
-        var cols=""
-        // todo find a nicer way to merge string array in swift
-        if contactDetails.count>0 {
-            for contactDetail in contactDetails {
-                if contactDetail == contactDetails.last! {
-                    cols+="\(contactDetail)"
-                } else {
-                    cols+="\(contactDetail) ,"
-                }
-            }
-        } else {
-            cols="*"
-        }
-        
-        if (skypename=="") {
-            whereQuery=""
-        } else {
-            whereQuery+="\(skypename)\""
-        }
-        return "\(select) \(cols) \(from) \(whereQuery);";
-    }
-    
-    public func getAllContacts(havingContactDetails:[String]) -> [String] {
-        let skypeContacts:[String] = getSkypeContacts();
-        var result:[(skypeName:String, messages: [(from:String, timestamp:String, message:String)])]=[]
-        for skypeContact in skypeContacts {
-            var messagesForSkypeContact: [(from:String, timestamp:String, message:String)] = getMessagesForSkypeContact(dialogPartner: skypeContact)
-            result+=[(skypeName: "\(skypeContact)", messages: messagesForSkypeContact)]
-        }
-        return result
-        
-        /*
-        var result:[String]=[]
-        if let dbase = self.db {
-        let contacts=dbase["Contacts"]
-        //select skypename from Contacts where type=1;
-        let skypename = Expression<String?>("skypename")
-        let type = Expression<Int?>("type")
-        let query = contacts.select(skypename)
-        .filter(type == 1)
-        .order(skypename.asc)
-        
-        for row in query {
-        result += ["\(row[skypename]!)"]
-        // id: 1, name: Optional("Alice"), email: alice@mac.com
-        }
-        }
-        return result;
-        
-        */
-        // TODO
-        return [""]
-    }
-    
-    func getConversationIDsForSkypeContact(dialogPartner diaPartner:String) -> [Int?] {
+
+    public func getConversationIDsForSkypeContact(dialogPartner diaPartner:String) -> [Int?] {
         var convoids = [Int?]()
         if let dbase=self.db {
             let conversations=dbase["Conversations"]
@@ -136,7 +35,7 @@ class MessagesManager {
         return convoids
     }
     
-    func getMessagesForSkypeContact(dialogPartner diaPartner: String) -> [(from:String, timestamp:String, message:String)] {
+    public func getMessagesForSkypeContact(dialogPartner diaPartner: String) -> [(from:String, timestamp:String, message:String)] {
         var result:[(from:String, timestamp:String, message:String)]=[]
         if let dbase=self.db {
             let messages=dbase["Messages"]
@@ -162,8 +61,28 @@ class MessagesManager {
         return result
     }
     
-    func getAllMessages() -> [(skypeName:String, messages: [(from:String, timestamp:String, message:String)])] {
-        let skypeContacts:[String] = getSkypeContacts();
+    public func getSkypeContacts() -> [String] {
+        var result:[String]=[]
+        if let dbase = self.db {
+            let contacts=dbase["Contacts"]
+            //select skypename from Contacts where type=1;
+            let skypename = Expression<String?>("skypename")
+            let type = Expression<Int?>("type")
+            var query = contacts.select(skypename)
+                .filter(type == 1)
+                .order(skypename.asc)
+            
+            for row in query {
+                result += ["\(row[skypename]!)"]
+                // id: 1, name: Optional("Alice"), email: alice@mac.com
+            }
+        }
+        return result
+    }
+
+    
+    public func getAllMessages() -> [(skypeName:String, messages: [(from:String, timestamp:String, message:String)])] {
+        let skypeContacts:[String] = getSkypeContacts()
         var result:[(skypeName:String, messages: [(from:String, timestamp:String, message:String)])]=[]
         for skypeContact in skypeContacts {
             var messagesForSkypeContact: [(from:String, timestamp:String, message:String)] = getMessagesForSkypeContact(dialogPartner: skypeContact)
@@ -171,5 +90,5 @@ class MessagesManager {
         }
         return result
     }
-
+*/
 }
