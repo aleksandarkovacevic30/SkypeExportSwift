@@ -11,7 +11,7 @@ import SQLite
 
 public class MessagesManager {
 
-    /*
+    
     var db:Database?
     
     init(skypedb:SkypeDB) {
@@ -90,5 +90,5 @@ public class MessagesManager {
         }
         return result
     }
-*/
+
 }

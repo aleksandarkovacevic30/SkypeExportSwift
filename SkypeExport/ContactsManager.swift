@@ -15,18 +15,19 @@ public class ContactsManager{
         case SKYPE_CONTACT
         case ALL
     }
-/*
+
+    var db:Database?
     
-    var skypeDB:SkypeDB
-    
-    init(db:SkypeDB?) {
-        self.skypeDB=db
+    init(skypedb:SkypeDB) {
+        if let db=skypedb.db {
+            self.db=db
+        }
     }
     
     //TODO look for swift hashtable data structure
     public func getContactDetailForSkypeuser(reqid: Int)->Contact{
         var result:Contact
-        if let dbase = self.skypeDB.db {
+        if let dbase = self.db {
             let contacts=dbase["Contacts"]
             //select skypename from Contacts where type=1;
             let id = Expression<Int?>("id")
@@ -477,5 +478,5 @@ public class ContactsManager{
     return result;
     }
     
-    */
+    
 }

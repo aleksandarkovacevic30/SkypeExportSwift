@@ -25,23 +25,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var mainView: NSView!
     @IBOutlet weak var configView: NSView!
     @IBOutlet weak var exportMsgsView: NSView!
+    
+    @IBOutlet weak var skypeUserName: NSComboBox!
+    var config:SkypeConfig=SkypeConfig();
+
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
         mainView.hidden=false
         configView.hidden=true
         ExportContactsView.hidden=true
         exportMsgsView.hidden=true
-        /*
-        // Insert code here to initialize your application
-        let skypePath:String = "\(getAppSupportDir()!)/Skype"
-        let (filenamesOpt, errorOpt) = contentsOfDirectoryAtPath(skypePath)
         
-        if let filenames=filenamesOpt?.filter(isSkypeUserName) {
-        for item:(filename: String, isDir: Bool) in filenames {
-        skypeUserName.addItemWithObjectValue(item.filename)
+        // Insert code here to initialize your application
+        let users=config.getLocalSkypeUsers()
+        for user in users {
+            skypeUserName.addItemWithObjectValue(user)
         }
-        }
-        */
 
     }
     
@@ -76,6 +75,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
+    @IBAction func applyConfigSettings(sender: AnyObject) {
+    }
 
     
     
@@ -96,19 +97,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
     
-    func errorHandler(error: SkypeDB.ERRORS) -> Void {
-        let myPopup:NSAlert = NSAlert()
-        myPopup.messageText = "Error"
-        switch error {
-        case SkypeDB.ERRORS.DB_FILE_NOT_FOUND:
-            myPopup.informativeText = "Database File Not Found"
-        case SkypeDB.ERRORS.DATABASE_NOT_LOADED:
-            myPopup.informativeText = "Database could not be loaded"
-        default:
-            myPopup.informativeText = "Unknown Error Occurred"
-        }
-        myPopup.runModal()
-    }
     
     @IBAction func showSkypeContacts(sender: AnyObject) {
         let dbPath="\(getAppSupportDir()!)/Skype/\(skypeUserName.stringValue)/main.db"
@@ -225,36 +213,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func isMacUserName(text: String, isDir:Bool) -> Bool {
         return isDir && !text.hasPrefix(".") && text != "Shared" && text != "Guest"
     }
-    func isSkypeUserName(text: String, isDir:Bool) -> Bool {
-        return isDir && !text.hasPrefix("shared_") && text != "Upgrade" && text != "DataRv"
-    }
     
-    func isDir(path: String) -> Bool {
-        var error: NSError?
-//        let documentURL : NSURL? = NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.UserDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: true, error: &error)
-        var isDirectory: ObjCBool = ObjCBool(false)
-        NSFileManager.defaultManager().fileExistsAtPath(path, isDirectory: &isDirectory);
-        return isDirectory.boolValue
-    }
     
     // Tuple result
     
     // Get contents of directory at specified path, returning (filenames, nil) or (nil, error)
-    func contentsOfDirectoryAtPath(path: String) -> (filenames: [(filename: String, isDir: Bool)]?, error: NSError?) {
-
-        var error: NSError?
-        var result: [(filename: String, isDir: Bool)] = []
-        let fileManager = NSFileManager.defaultManager()
-
-        let contents = fileManager.contentsOfDirectoryAtPath(path, error: &error)
-        if contents != nil  {
-            let filenames = contents as [String]
-            for filename in filenames {
-                    result += [(filename: filename, isDir: isDir(path+"/"+filename))]
-            }
-        }
-        return (result,nil);
-    }
  */
     
     
@@ -274,6 +237,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
 */
     
+    @IBAction func loadContactsClicked(sender: AnyObject) {
+        
+        
+    }
 
+    func errorHandler(error: SkypeDB.ERRORS) -> Void {
+        let myPopup:NSAlert = NSAlert()
+        myPopup.messageText = "Error"
+        switch error {
+        case SkypeDB.ERRORS.DB_FILE_NOT_FOUND:
+            myPopup.informativeText = "Database File Not Found"
+        case SkypeDB.ERRORS.DATABASE_NOT_LOADED:
+            myPopup.informativeText = "Database could not be loaded"
+        default:
+            myPopup.informativeText = "Unknown Error Occurred"
+        }
+        myPopup.runModal()
+    }
+
+    
 }
 

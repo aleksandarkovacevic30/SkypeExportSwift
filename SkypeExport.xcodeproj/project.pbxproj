@@ -18,6 +18,8 @@
 		EE41BA5D1AFD516E00D18CCD /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41BA5B1AFD516E00D18CCD /* ContactsManager.swift */; };
 		EE41BA5F1AFD55AE00D18CCD /* MessagesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41BA5E1AFD55AE00D18CCD /* MessagesManager.swift */; };
 		EE41BA601AFD55AE00D18CCD /* MessagesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41BA5E1AFD55AE00D18CCD /* MessagesManager.swift */; };
+		EE686E951B08851100E93ECB /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE686E941B08851100E93ECB /* settings.plist */; };
+		EE686E9A1B08891600E93ECB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE686E991B08891600E93ECB /* Config.swift */; };
 		EE7F917C1A8B7D9B00868948 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F917B1A8B7D9B00868948 /* AppDelegate.swift */; };
 		EE7F917E1A8B7D9B00868948 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE7F917D1A8B7D9B00868948 /* Images.xcassets */; };
 		EE7F91811A8B7D9B00868948 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE7F917F1A8B7D9B00868948 /* MainMenu.xib */; };
@@ -80,6 +82,8 @@
 		EE41BA581AFD50EC00D18CCD /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		EE41BA5B1AFD516E00D18CCD /* ContactsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
 		EE41BA5E1AFD55AE00D18CCD /* MessagesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesManager.swift; sourceTree = "<group>"; };
+		EE686E941B08851100E93ECB /* settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
+		EE686E991B08891600E93ECB /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		EE7F91761A8B7D9B00868948 /* SkypeExport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkypeExport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE7F917A1A8B7D9B00868948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE7F917B1A8B7D9B00868948 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 			children = (
 				EE41BA511AF25B1500D18CCD /* ContactsColumns.plist */,
 				EE7F917A1A8B7D9B00868948 /* Info.plist */,
+				EE686E941B08851100E93ECB /* settings.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 				EE7F91AC1A8CDD1700868948 /* SkypeDB.swift */,
 				EE41BA5B1AFD516E00D18CCD /* ContactsManager.swift */,
 				EE41BA5E1AFD55AE00D18CCD /* MessagesManager.swift */,
+				EE686E991B08891600E93ECB /* Config.swift */,
 			);
 			name = SkypeDao;
 			sourceTree = "<group>";
@@ -323,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE7F917E1A8B7D9B00868948 /* Images.xcassets in Resources */,
+				EE686E951B08851100E93ECB /* settings.plist in Resources */,
 				EE7F91811A8B7D9B00868948 /* MainMenu.xib in Resources */,
 				EE41BA521AF25B1500D18CCD /* ContactsColumns.plist in Resources */,
 			);
@@ -349,6 +356,7 @@
 				EE41BA591AFD50EC00D18CCD /* Message.swift in Sources */,
 				EE7F917C1A8B7D9B00868948 /* AppDelegate.swift in Sources */,
 				EE41BA5C1AFD516E00D18CCD /* ContactsManager.swift in Sources */,
+				EE686E9A1B08891600E93ECB /* Config.swift in Sources */,
 				EE7F91AB1A8CDD0300868948 /* SkypeFileSystem.swift in Sources */,
 				EE41BA5F1AFD55AE00D18CCD /* MessagesManager.swift in Sources */,
 			);
