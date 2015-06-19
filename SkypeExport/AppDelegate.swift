@@ -27,8 +27,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var exportMsgsView: NSView!
     
     @IBOutlet weak var skypeUserName: NSComboBox!
-    var config:SkypeConfig=SkypeConfig();
+    var config:SkypeConfig=SkypeConfig()
+    var skypeDB:SkypeDB
 
+    @IBOutlet weak var userNameComboBox: NSComboBox!
+    @IBAction func applySkypeUserName(sender: AnyObject) {
+        skypeDB=SkypeDB(skypeUser: userNameComboBox.stringValue, isBusyHandler: isBusyHandler, errorHandler: errorHandler, debugPath: "")
+    }
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
         mainView.hidden=false
@@ -79,6 +84,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     
+    func isBusyHandler(Check: Int) -> Bool {
+        let myPopup:NSAlert = NSAlert()
+        myPopup.messageText = "Skype Database is Locked"
+        myPopup.informativeText = "You need to quit skype before using Skype Exporter."
+        myPopup.runModal()
+        return true
+    }
     
     
         
@@ -88,13 +100,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func loadContactOptionsDialog(sender: AnyObject) {
         
-    }
-    func isBusyHandler(Check: Int) -> Bool {
-        let myPopup:NSAlert = NSAlert()
-        myPopup.messageText = "Skype Database is Locked"
-        myPopup.informativeText = "You need to quit skype before using Skype Exporter."
-        myPopup.runModal()
-        return true
     }
     
     

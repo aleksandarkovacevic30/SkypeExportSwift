@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -19,6 +18,7 @@
                 <outlet property="exportMsgsView" destination="IcN-Ih-cN5" id="FGr-md-6V5"/>
                 <outlet property="mainView" destination="OyK-od-M10" id="VXn-Vg-Utc"/>
                 <outlet property="skypeUserName" destination="4Rh-qS-uob" id="Sgp-5y-7aa"/>
+                <outlet property="userNameComboBox" destination="4Rh-qS-uob" id="lX9-KC-Kn8"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -885,11 +885,11 @@ Messages</string>
                                     <font key="font" metaFont="system" size="22"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="applyConfigSettings:" target="Voe-Tx-rLC" id="qfx-a5-Uh8"/>
+                                    <action selector="applySkypeUserName:" target="Voe-Tx-rLC" id="1pz-AX-bE2"/>
                                 </connections>
                             </button>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Rh-qS-uob">
-                                <rect key="frame" x="146" y="154" width="237" height="28"/>
+                                <rect key="frame" x="146" y="154" width="237" height="27"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="V50-28-l5a">
                                     <font key="font" metaFont="system" size="15"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>

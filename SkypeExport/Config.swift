@@ -34,7 +34,7 @@ public class SkypeConfig {
         
         let contents = fileManager.contentsOfDirectoryAtPath(path, error: &error)
         if contents != nil  {
-            let filenames = contents as [String]
+            let filenames = contents as! [String]
             for filename in filenames {
                 result += [(filename: filename, isDir: isDir(path+"/"+filename))]
             }

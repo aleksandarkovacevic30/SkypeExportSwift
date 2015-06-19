@@ -36,29 +36,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SkypeExport.Contact.deinit"
+                  symbolName = "SkypeExport.Contact.__deallocating_deinit"
                   moduleName = "SkypeExport"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/aleksandarkovacevic/Documents/SkypeExportSwift/SkypeExport/Contact.swift"
-                  timestampString = "453543074.515088"
+                  timestampString = "456431447.229079"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "11"
-                  endingLineNumber = "11"
-                  offsetFromSymbolStart = "15">
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SkypeExport.Contact.__deallocating_deinit"
+                  symbolName = "SkypeExport.Contact.deinit"
                   moduleName = "SkypeExport"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/aleksandarkovacevic/Documents/SkypeExportSwift/SkypeExport/Contact.swift"
-                  timestampString = "453543074.515318"
+                  timestampString = "456431447.229289"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "11"
-                  endingLineNumber = "11"
-                  offsetFromSymbolStart = "12">
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "15">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -66,12 +68,13 @@
                   continueAfterRunningActions = "No"
                   symbolName = "SkypeExport.Contact.init (SkypeExport.Contact.Type)() -&gt; SkypeExport.Contact"
                   moduleName = "SkypeExport"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/aleksandarkovacevic/Documents/SkypeExportSwift/SkypeExport/Contact.swift"
-                  timestampString = "453543074.51545"
+                  timestampString = "456431447.229435"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "11"
-                  endingLineNumber = "11"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
                   offsetFromSymbolStart = "15">
                </Location>
             </Locations>

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EE7F91751A8B7D9B00868948"
-               BuildableName = "SkypeExport.app"
-               BlueprintName = "SkypeExport"
-               ReferencedContainer = "container:SkypeExport.xcodeproj">
+               BlueprintIdentifier = "DC3773F219C8CBB3004FCF85"
+               BuildableName = "SQLite.framework"
+               BlueprintName = "SQLite"
+               ReferencedContainer = "container:SQLite.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EE7F91851A8B7D9B00868948"
-               BuildableName = "SkypeExportTests.xctest"
-               BlueprintName = "SkypeExportTests"
-               ReferencedContainer = "container:SkypeExport.xcodeproj">
+               BlueprintIdentifier = "DC3773FD19C8CBB3004FCF85"
+               BuildableName = "SQLite Tests.xctest"
+               BlueprintName = "SQLite Tests"
+               ReferencedContainer = "container:SQLite.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,20 +46,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EE7F91851A8B7D9B00868948"
-               BuildableName = "SkypeExportTests.xctest"
-               BlueprintName = "SkypeExportTests"
-               ReferencedContainer = "container:SkypeExport.xcodeproj">
+               BlueprintIdentifier = "DC3773FD19C8CBB3004FCF85"
+               BuildableName = "SQLite Tests.xctest"
+               BlueprintName = "SQLite Tests"
+               ReferencedContainer = "container:SQLite.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EE7F91751A8B7D9B00868948"
-            BuildableName = "SkypeExport.app"
-            BlueprintName = "SkypeExport"
-            ReferencedContainer = "container:SkypeExport.xcodeproj">
+            BlueprintIdentifier = "DC3773F219C8CBB3004FCF85"
+            BuildableName = "SQLite.framework"
+            BlueprintName = "SQLite"
+            ReferencedContainer = "container:SQLite.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -72,16 +72,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EE7F91751A8B7D9B00868948"
-            BuildableName = "SkypeExport.app"
-            BlueprintName = "SkypeExport"
-            ReferencedContainer = "container:SkypeExport.xcodeproj">
+            BlueprintIdentifier = "DC3773F219C8CBB3004FCF85"
+            BuildableName = "SQLite.framework"
+            BlueprintName = "SQLite"
+            ReferencedContainer = "container:SQLite.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -91,16 +90,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EE7F91751A8B7D9B00868948"
-            BuildableName = "SkypeExport.app"
-            BlueprintName = "SkypeExport"
-            ReferencedContainer = "container:SkypeExport.xcodeproj">
+            BlueprintIdentifier = "DC3773F219C8CBB3004FCF85"
+            BuildableName = "SQLite.framework"
+            BlueprintName = "SQLite"
+            ReferencedContainer = "container:SQLite.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
