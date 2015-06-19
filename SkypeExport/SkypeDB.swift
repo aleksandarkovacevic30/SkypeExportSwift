@@ -10,6 +10,7 @@ import Foundation
 import SQLite
 
 public class SkypeDB: MessagesManager, ContactsManager {
+    var exporter=SkypeExporterOutput()
     public enum CONTACT_TYPE {
         case SKYPE_CONTACT
         case ALL
@@ -30,7 +31,7 @@ public class SkypeDB: MessagesManager, ContactsManager {
         self.skypeUser=skypeuser
         self.errorHandler=errorHandler
         self.lastError=ERRORS.NONE
-        var userDirPath=getAppSupportDir()
+        var userDirPath=exporter.getAppSupportDir()
 
         var path: String
         if debugPath != "" {

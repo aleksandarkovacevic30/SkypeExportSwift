@@ -933,6 +933,9 @@ Messages</string>
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="22"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="exportContactsAsHTML:" target="Voe-Tx-rLC" id="0fE-bA-AE0"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QBz-Lk-47h">
                                 <rect key="frame" x="14" y="252" width="372" height="23"/>
@@ -956,6 +959,9 @@ Messages</string>
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="22"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="exportContactsAsCSV:" target="Voe-Tx-rLC" id="TGf-I0-kMc"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EAm-iw-aG9">
                                 <rect key="frame" x="84" y="164" width="233" height="72"/>
@@ -964,7 +970,7 @@ Messages</string>
                                     <font key="font" metaFont="system" size="22"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="loadContactsClicked:" target="Voe-Tx-rLC" id="pGQ-0q-3JT"/>
+                                    <action selector="loadContacts:" target="Voe-Tx-rLC" id="K6B-nx-1JG"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mcl-bh-mQi">

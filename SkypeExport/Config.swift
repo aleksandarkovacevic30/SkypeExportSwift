@@ -10,13 +10,13 @@ import Foundation
 
 public class SkypeConfig {
     var skypeName:String!
-    
+    var exporter=SkypeExporterOutput()
     init(){
         self.skypeName=""
     }
     
     public func getLocalSkypeUsers()->[String]{
-        let skypePath:String = "\(getAppSupportDir()!)/Skype"
+        let skypePath:String = "\(exporter.getAppSupportDir()!)/Skype"
         let (filenamesOpt, errorOpt) = contentsOfDirectoryAtPath(skypePath)
         var result:[String]=[]
         if let filenames=filenamesOpt?.filter(isSkypeUserName) {

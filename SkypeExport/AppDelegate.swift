@@ -30,9 +30,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var config:SkypeConfig=SkypeConfig()
     var skypeDB:SkypeDB?
 
+    var contacts:[Contact]?
+    
     @IBOutlet weak var userNameComboBox: NSComboBox!
     @IBAction func applySkypeUserName(sender: AnyObject) {
         skypeDB=SkypeDB(skypeUser: userNameComboBox.stringValue, isBusyHandler: isBusyHandler, errorHandler: errorHandler, debugPath: "")
+        showMsg("Info",message: "Successfully configured and connected to local Skype DB.")
     }
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
@@ -93,7 +96,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     
-        
+    @IBAction func loadContacts(sender: AnyObject) {
+        if let db=skypeDB{
+            contacts=db.getAllContactDetails()
+            showMsg("Info",message: "Successfully loaded contacts.")
+        } else {
+            showMsg("Error",message: "Could not connect to Skype DB. Please go to configuration and set the config beforehand.")
+        }
+
+    }
+    
 
 
     /*
@@ -131,86 +143,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         println("\(skypeContacts.stringValue)")
         println("\(result)")*/
     }
-    @IBAction func exportAsCSV(sender: AnyObject) {
-        var myFiledialog: NSSavePanel = NSSavePanel()
-        
-        myFiledialog.prompt = "Export"
-        myFiledialog.worksWhenModal = true
-        myFiledialog.title = "Choose Path"
-        myFiledialog.message = "Please choose a path"
-        myFiledialog.runModal()
-        var chosenfile = myFiledialog.URL
-        if (chosenfile != nil)
-        {
-            var TheFile = chosenfile?.path!
-            
-            let dbPath="\(getAppSupportDir()!)/Skype/\(skypeUserName.stringValue)/main.db"
-            let skypeDB=SkypeDB(skypeUser: dbPath, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "");
-/*            let messages=skypeDB.getMessagesForSkypeContact(dialogPartner: skypeContacts.stringValue)
-            
-            let exporter = SkypeExporterOutput()
-            
-            let result = exporter.saveToCSV(usingSelectedPath:"\(TheFile!)", messageTuples: messages)
-            let myPopup:NSAlert = NSAlert()
-            if (result) {
-                myPopup.messageText = "Export Result";
-                myPopup.informativeText = "Export to CSV is successful\nExported to \(TheFile!)"
-            } else {
-                myPopup.messageText = "Export Result";
-                myPopup.informativeText = "Export to CSV failed"
-                
-            }
-            
-            
-            myPopup.runModal()
 
-*/
-        }
-        else
-        {
-            println ("No file chosen")
-        }
-    }
-    @IBAction func exportHTML(sender: AnyObject) {
-        var myFiledialog: NSSavePanel = NSSavePanel()
-        
-        myFiledialog.prompt = "Export"
-        myFiledialog.worksWhenModal = true
-        myFiledialog.title = "Choose Path"
-        myFiledialog.message = "Please choose a path"
-        myFiledialog.runModal()
-        var chosenfile = myFiledialog.URL
-        if (chosenfile != nil)
-        {
-            var TheFile = chosenfile?.path!
-            
-            let dbPath="\(getAppSupportDir()!)/Skype/\(skypeUserName.stringValue)/main.db"
-            let skypeDB=SkypeDB(skypeUser: skypeUserName.stringValue, isBusyHandler: isBusyHandler,errorHandler: errorHandler,debugPath: "");
-/*           let messages=skypeDB.getMessagesForSkypeContact(dialogPartner: skypeContacts.stringValue)
-            
-            let exporter = SkypeExporterOutput()
-            
-            let result = exporter.saveToHTML(usingSelectedPath:"\(TheFile!)", messageTuples: messages)
-            let myPopup:NSAlert = NSAlert()
-            if (result) {
-                myPopup.messageText = "Export Result";
-                myPopup.informativeText = "Export to HTML is successful\nExported to \(TheFile!)"
-            } else {
-                myPopup.messageText = "Export Result";
-                myPopup.informativeText = "Export to HTML failed"
-                
-            }
-            
-            
-            myPopup.runModal()
-  */          
-            
-        }
-        else
-        {
-            println ("No file chosen")
-        }
-    }
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
@@ -241,11 +174,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
 */
-    
-    @IBAction func loadContactsClicked(sender: AnyObject) {
-        
-        
+
+    func showMsg(title:String, message:String) {
+        let myPopup:NSAlert = NSAlert()
+        myPopup.messageText = title
+        myPopup.informativeText = message
+        myPopup.runModal()
+
     }
+    
 
     func errorHandler(error: SkypeDB.ERRORS) -> Void {
         let myPopup:NSAlert = NSAlert()
@@ -261,6 +198,70 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         myPopup.runModal()
     }
 
+    
+
+    @IBAction func exportContactsAsCSV(sender: AnyObject) {
+        var myFiledialog: NSSavePanel = NSSavePanel()
+        
+        myFiledialog.prompt = "Export"
+        myFiledialog.worksWhenModal = true
+        myFiledialog.title = "Choose Path"
+        myFiledialog.message = "Please choose a path"
+        myFiledialog.runModal()
+        var chosenfile = myFiledialog.URL
+        if (chosenfile != nil) {
+            var TheFile = chosenfile?.path!
+            
+            if let contactList=contacts {
+                let exporter = SkypeExporterOutput()
+                let contactData=exporter.prepareContactsForExport(contactList)
+            
+                let result = exporter.saveToCSV(usingSelectedPath:"\(TheFile!)", data: contactData)
+                if (result) {
+                    showMsg("Export Result",message:"Export to CSV is successful\nExported to \(TheFile!)")
+                } else {
+                    showMsg("Export Result", message: "Export to CSV failed")
+                }
+            } else {
+                showMsg("Export Result", message: "No contacts loaded. Load contacts first")
+            }
+        } else {
+            showMsg("Export Result", message: "No File Chosen")
+        }
+
+    }
+    
+
+    @IBAction func exportContactsAsHTML(sender: AnyObject) {
+        var myFiledialog: NSSavePanel = NSSavePanel()
+        
+        myFiledialog.prompt = "Export"
+        myFiledialog.worksWhenModal = true
+        myFiledialog.title = "Choose Path"
+        myFiledialog.message = "Please choose a path"
+        myFiledialog.runModal()
+        var chosenfile = myFiledialog.URL
+        if (chosenfile != nil) {
+            var TheFile = chosenfile?.path!
+            
+            
+            if let contactList=contacts {
+                let exporter = SkypeExporterOutput()
+                let contactData=exporter.prepareContactsForExport(contactList)
+                let result = exporter.saveToHTML(usingSelectedPath:"\(TheFile!)", data: contactData)
+
+                if (result) {
+                    showMsg("Export Result", message: "Export to HTML is successful\nExported to \(TheFile!)")
+                } else {
+                    showMsg("Export Result", message: "Export to HTML failed")
+                }
+            } else {
+                showMsg("Export Result", message: "No contacts loaded. Load contacts first")
+            }
+        } else {
+            showMsg("Export Result", message: "No file chosen")
+        }
+    }
     
 }
 

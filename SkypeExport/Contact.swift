@@ -9,6 +9,7 @@
 import Foundation
 
 public class Contact {
+    init (){}
     var id: Int?
     var is_permanent: Int?
     var type: Int?

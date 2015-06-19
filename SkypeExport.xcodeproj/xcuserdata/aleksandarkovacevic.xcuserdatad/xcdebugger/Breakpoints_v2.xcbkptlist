@@ -30,7 +30,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "10"
-            endingLineNumber = "10">
+            endingLineNumber = "10"
+            landmarkName = "Contact"
+            landmarkType = "3">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -40,7 +42,7 @@
                   moduleName = "SkypeExport"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/aleksandarkovacevic/Documents/SkypeExportSwift/SkypeExport/Contact.swift"
-                  timestampString = "456431447.229079"
+                  timestampString = "456450442.453592"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -55,22 +57,7 @@
                   moduleName = "SkypeExport"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/aleksandarkovacevic/Documents/SkypeExportSwift/SkypeExport/Contact.swift"
-                  timestampString = "456431447.229289"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "15">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SkypeExport.Contact.init (SkypeExport.Contact.Type)() -&gt; SkypeExport.Contact"
-                  moduleName = "SkypeExport"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aleksandarkovacevic/Documents/SkypeExportSwift/SkypeExport/Contact.swift"
-                  timestampString = "456431447.229435"
+                  timestampString = "456450442.453791"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
