@@ -28,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var skypeUserName: NSComboBox!
     var config:SkypeConfig=SkypeConfig()
-    var skypeDB:SkypeDB
+    var skypeDB:SkypeDB?
 
     @IBOutlet weak var userNameComboBox: NSComboBox!
     @IBAction func applySkypeUserName(sender: AnyObject) {
