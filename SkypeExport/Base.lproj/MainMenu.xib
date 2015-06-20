@@ -15,6 +15,7 @@
             <connections>
                 <outlet property="ExportContactsView" destination="BsT-rR-fOW" id="2rx-EG-zUA"/>
                 <outlet property="configView" destination="qeZ-gX-7vu" id="2QP-6n-4aa"/>
+                <outlet property="dialogPartner" destination="ZRY-jf-LN6" id="kcs-Wx-SvZ"/>
                 <outlet property="exportMsgsView" destination="IcN-Ih-cN5" id="FGr-md-6V5"/>
                 <outlet property="mainView" destination="OyK-od-M10" id="VXn-Vg-Utc"/>
                 <outlet property="skypeUserName" destination="4Rh-qS-uob" id="Sgp-5y-7aa"/>
@@ -825,7 +826,7 @@ Messages</string>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BGg-AB-Dql">
                                 <rect key="frame" x="216" y="269" width="170" height="23"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" title="Step 3. Export As" id="TFY-6n-Y9G">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" title="Load All Contacts" id="TFY-6n-Y9G">
                                     <font key="font" metaFont="system" size="15"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

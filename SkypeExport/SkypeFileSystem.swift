@@ -10,6 +10,58 @@ import Foundation
 
 public class SkypeExporterOutput {
 
+    
+    public func prepareMessagesForExport(messages:[Message])->[[String]]{
+        var messageData:[[String]]=[]
+        messageData+=[["author",
+            "dialog_partner",
+            "from_dispname",
+            "identities",
+            "participant_count",
+            "timestamp",
+            "body_xml"]]
+        
+        for message in messages {
+            var singlemessage:[String]=[]
+            if let author=message.author {
+                singlemessage+=[author]
+            } else {
+                singlemessage+=[""]
+            }
+            if let dname=message.dialog_partner {
+                singlemessage+=[dname]
+            } else {
+                singlemessage+=[""]
+            }
+            if let fname=message.from_dispname {
+                singlemessage+=[fname]
+            } else {
+                singlemessage+=[""]
+            }
+            if let ids=message.identities {
+                singlemessage+=[ids]
+            } else {
+                singlemessage+=[""]
+            }
+            if let pcount=message.participant_count {
+                singlemessage+=[String(pcount)]
+            } else {
+                singlemessage+=[""]
+            }
+            if let tstamp=message.timestamp {
+                singlemessage+=[printFormattedDate(NSDate(timeIntervalSince1970: Double(tstamp)))]
+            } else {
+                singlemessage+=[""]
+            }
+            if let body=message.body_xml {
+                singlemessage+=[body]
+            } else {
+                singlemessage+=[""]
+            }
+            messageData+=[singlemessage]
+        }
+        return messageData
+    }
    
     public func prepareContactsForExport(contacts:[Contact])->[[String]]{
         var contactData:[[String]]=[]
@@ -21,7 +73,7 @@ public class SkypeExporterOutput {
                 "phone_home",
                 "phone_mobile",
                 "phone_office",
-                "verified_email",
+                "emails",
                 "timezone",
                 "type",
                 "nr_of_buddies"]]
@@ -68,7 +120,7 @@ public class SkypeExporterOutput {
                 } else {
                     singleContact+=[""]
                 }
-                if let vemail=contact.verified_email {
+                if let vemail=contact.emails {
                     singleContact+=[vemail]
                 } else {
                     singleContact+=[""]

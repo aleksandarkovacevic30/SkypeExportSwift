@@ -26,6 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var configView: NSView!
     @IBOutlet weak var exportMsgsView: NSView!
     
+    @IBOutlet weak var dialogPartner: NSComboBox!
     @IBOutlet weak var skypeUserName: NSComboBox!
     var config:SkypeConfig=SkypeConfig()
     var skypeDB:SkypeDB?
@@ -63,6 +64,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         configView.hidden=true
         ExportContactsView.hidden=true
         exportMsgsView.hidden=false
+        if let dB=skypeDB {
+            for skypeContact in dB.getSkypeContacts() {
+                dialogPartner.addItemWithObjectValue("\(skypeContact)")
+            }
+        }
     }
     @IBAction func goToConfigView(sender: AnyObject) {
         mainView.hidden=true
@@ -262,6 +268,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             showMsg("Export Result", message: "No file chosen")
         }
     }
+    
+    
     
 }
 
