@@ -785,6 +785,9 @@
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="loadMessagesForSingleContact:" target="Voe-Tx-rLC" id="Oyt-FA-JbZ"/>
+                                </connections>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DR8-ek-HSn">
                                 <rect key="frame" x="223" y="140" width="157" height="104"/>
@@ -801,6 +804,9 @@ Messages</string>
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="22"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="exportMessagesAsHTML:" target="Voe-Tx-rLC" id="1H7-Li-CFa"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mjx-dl-e36">
                                 <rect key="frame" x="14" y="92" width="372" height="23"/>
@@ -816,6 +822,9 @@ Messages</string>
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="22"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="exportMessagesAsCSV:" target="Voe-Tx-rLC" id="bNe-Ls-Nwa"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4kQ-7X-qQm">
                                 <rect key="frame" x="24" y="140" width="164" height="54"/>
@@ -823,6 +832,9 @@ Messages</string>
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="22"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="loadMsgsForSingleContact:" target="Voe-Tx-rLC" id="gMj-CR-teY"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BGg-AB-Dql">
                                 <rect key="frame" x="216" y="269" width="170" height="23"/>

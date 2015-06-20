@@ -69,8 +69,8 @@ public class SkypeDB: MessagesManager, ContactsManager {
         return convoids
     }
     
-    public func getMessagesForSkypeContact(dialogPartner diaPartner: String) -> [(from:String, timestamp:String, message:String)] {
-        var result:[(from:String, timestamp:String, message:String)]=[]
+    public func getMessagesForSkypeContact(dialogPartner diaPartner: String) -> [(from:String, dialog_partner:String, timestamp:String, message:String)] {
+        var result:[(from:String, dialog_partner:String, timestamp:String, message:String)]=[]
         if let dbase=self.db {
             let messages=dbase["Messages"]
             let convoids = getConversationIDsForSkypeContact(dialogPartner: "\(diaPartner)")
@@ -85,11 +85,19 @@ public class SkypeDB: MessagesManager, ContactsManager {
             //.order(timeInEpochs.desc) // ORDER BY "email" DESC, "name"
             var formattedTimestamp:String="";
             for message in query {
-                var epochs:Double = Double(message[timeInEpochs]!);
-                //                    formattedTimestamp=printFormattedDate(NSDate(timeIntervalSince1970: epochs))
-                result += [(from: "\(message[author]!)",
-                    timestamp: "\(formattedTimestamp)",
-                    message: "\(message[body]!)")]
+                if let auth=message[author] {
+                    if let diapartner=message[dialog_partner] {
+                        if let timestamp=message[timeInEpochs] {
+                            if let body=message[body] {
+                                result += [(from: "\(auth)",
+                                    dialog_partner: "\(diapartner)",
+                                    timestamp: "\(timestamp)",
+                                    message: "\(body)")]
+                                
+                            }
+                        }
+                    }
+                }
                 
             }
         }
@@ -116,11 +124,11 @@ public class SkypeDB: MessagesManager, ContactsManager {
     }
     
     
-    public func getAllMessages() -> [(skypeName:String, messages: [(from:String, timestamp:String, message:String)])] {
+    public func getAllMessages() -> [(skypeName:String, messages: [(from:String, dialog_partner:String, timestamp:String, message:String)])] {
         let skypeContacts:[String] = getSkypeContacts()
-        var result:[(skypeName:String, messages: [(from:String, timestamp:String, message:String)])]=[]
+        var result:[(skypeName:String, messages: [(from:String, dialog_partner:String, timestamp:String, message:String)])]=[]
         for skypeContact in skypeContacts {
-            var messagesForSkypeContact: [(from:String, timestamp:String, message:String)] = getMessagesForSkypeContact(dialogPartner: skypeContact)
+            var messagesForSkypeContact: [(from:String, dialog_partner:String, timestamp:String, message:String)] = getMessagesForSkypeContact(dialogPartner: skypeContact)
             result+=[(skypeName: "\(skypeContact)", messages: messagesForSkypeContact)]
         }
         return result

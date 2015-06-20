@@ -14,10 +14,10 @@ protocol MessagesManager {
     
 func getConversationIDsForSkypeContact(dialogPartner diaPartner:String) -> [Int?]
     
-func getMessagesForSkypeContact(dialogPartner diaPartner: String) -> [(from:String, timestamp:String, message:String)]
+func getMessagesForSkypeContact(dialogPartner diaPartner: String) -> [(from:String, dialog_partner:String, timestamp:String, message:String)]
     
 func getSkypeContacts() -> [String]
     
-func getAllMessages() -> [(skypeName:String, messages: [(from:String, timestamp:String, message:String)])]
+func getAllMessages() -> [(skypeName:String, messages: [(from:String, dialog_partner:String, timestamp:String, message:String)])]
 
 }

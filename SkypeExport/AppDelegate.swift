@@ -30,6 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var skypeUserName: NSComboBox!
     var config:SkypeConfig=SkypeConfig()
     var skypeDB:SkypeDB?
+    var messages:[(from:String, dialog_partner:String, timestamp:String, message:String)]?
 
     var contacts:[Contact]?
     
@@ -222,7 +223,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 let exporter = SkypeExporterOutput()
                 let contactData=exporter.prepareContactsForExport(contactList)
             
-                let result = exporter.saveToCSV(usingSelectedPath:"\(TheFile!)", data: contactData)
+                let result = exporter.saveToCSV(usingSelectedPath:"\(TheFile!)", data: contactData, type: "contacts")
                 if (result) {
                     showMsg("Export Result",message:"Export to CSV is successful\nExported to \(TheFile!)")
                 } else {
@@ -254,7 +255,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             if let contactList=contacts {
                 let exporter = SkypeExporterOutput()
                 let contactData=exporter.prepareContactsForExport(contactList)
-                let result = exporter.saveToHTML(usingSelectedPath:"\(TheFile!)", data: contactData)
+                let result = exporter.saveToHTML(usingSelectedPath:"\(TheFile!)", data: contactData, type: "contacts")
 
                 if (result) {
                     showMsg("Export Result", message: "Export to HTML is successful\nExported to \(TheFile!)")
@@ -269,7 +270,74 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    @IBAction func loadMsgsForSingleContact(sender: AnyObject) {
+        if let dbase=skypeDB {
+            messages = dbase.getMessagesForSkypeContact(dialogPartner:"\(dialogPartner.stringValue)")
+            
+        } else {
+            showMsg("Message Extractor",message:"Not connected to local Skype DB. Please go to configuration before extracting messages or contacts.")
+        }
+    }
     
+    @IBAction func exportMessagesAsHTML(sender: AnyObject) {
+        var myFiledialog: NSSavePanel = NSSavePanel()
+        
+        myFiledialog.prompt = "Export"
+        myFiledialog.worksWhenModal = true
+        myFiledialog.title = "Choose Path"
+        myFiledialog.message = "Please choose a path"
+        myFiledialog.runModal()
+        var chosenfile = myFiledialog.URL
+        if (chosenfile != nil) {
+            var TheFile = chosenfile?.path!
+            
+            
+            if let messageList=messages {
+                let exporter = SkypeExporterOutput()
+                let messageData=exporter.prepareMessagesForExport(messageList)
+                let result = exporter.saveToHTML(usingSelectedPath:"\(TheFile!)", data: messageData, type: "messages")
+                
+                if (result) {
+                    showMsg("Export Result", message: "Export to HTML is successful\nExported to \(TheFile!)")
+                } else {
+                    showMsg("Export Result", message: "Export to HTML failed")
+                }
+            } else {
+                showMsg("Export Result", message: "No messages loaded. Load messages first")
+            }
+        } else {
+            showMsg("Export Result", message: "No file chosen")
+        }
+    }
+    @IBAction func exportMessagesAsCSV(sender: AnyObject) {
+        var myFiledialog: NSSavePanel = NSSavePanel()
+        
+        myFiledialog.prompt = "Export"
+        myFiledialog.worksWhenModal = true
+        myFiledialog.title = "Choose Path"
+        myFiledialog.message = "Please choose a path"
+        myFiledialog.runModal()
+        var chosenfile = myFiledialog.URL
+        if (chosenfile != nil) {
+            var TheFile = chosenfile?.path!
+            
+            if let messageList=messages {
+                let exporter = SkypeExporterOutput()
+                let messageData=exporter.prepareMessagesForExport(messageList)
+                
+                let result = exporter.saveToCSV(usingSelectedPath:"\(TheFile!)", data: messageData, type: "contacts")
+                if (result) {
+                    showMsg("Export Result",message:"Export to CSV is successful\nExported to \(TheFile!)")
+                } else {
+                    showMsg("Export Result", message: "Export to CSV failed")
+                }
+            } else {
+                showMsg("Export Result", message: "No contacts loaded. Load contacts first")
+            }
+        } else {
+            showMsg("Export Result", message: "No File Chosen")
+        }
+    }
     
 }
 

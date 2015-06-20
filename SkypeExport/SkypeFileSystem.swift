@@ -11,53 +11,19 @@ import Foundation
 public class SkypeExporterOutput {
 
     
-    public func prepareMessagesForExport(messages:[Message])->[[String]]{
+    public func prepareMessagesForExport(messages:[(from:String, dialog_partner:String, timestamp:String, message:String)])->[[String]]{
         var messageData:[[String]]=[]
         messageData+=[["author",
             "dialog_partner",
-            "from_dispname",
-            "identities",
-            "participant_count",
             "timestamp",
-            "body_xml"]]
+            "message"]]
         
         for message in messages {
             var singlemessage:[String]=[]
-            if let author=message.author {
-                singlemessage+=[author]
-            } else {
-                singlemessage+=[""]
-            }
-            if let dname=message.dialog_partner {
-                singlemessage+=[dname]
-            } else {
-                singlemessage+=[""]
-            }
-            if let fname=message.from_dispname {
-                singlemessage+=[fname]
-            } else {
-                singlemessage+=[""]
-            }
-            if let ids=message.identities {
-                singlemessage+=[ids]
-            } else {
-                singlemessage+=[""]
-            }
-            if let pcount=message.participant_count {
-                singlemessage+=[String(pcount)]
-            } else {
-                singlemessage+=[""]
-            }
-            if let tstamp=message.timestamp {
-                singlemessage+=[printFormattedDate(NSDate(timeIntervalSince1970: Double(tstamp)))]
-            } else {
-                singlemessage+=[""]
-            }
-            if let body=message.body_xml {
-                singlemessage+=[body]
-            } else {
-                singlemessage+=[""]
-            }
+            singlemessage+=[message.from]
+            singlemessage+=[message.dialog_partner]
+            singlemessage+=[message.timestamp]
+            singlemessage+=[message.message]
             messageData+=[singlemessage]
         }
         return messageData
@@ -147,7 +113,7 @@ public class SkypeExporterOutput {
     }
     
     //TODO - fix the double quotes when they appear in the text
-    public func saveToCSV(usingSelectedPath path: String, data text: [[String]]) -> Bool {
+    public func saveToCSV(usingSelectedPath path: String, data text: [[String]], type:String) -> Bool {
         var csvResult=""
         for row in text {
             for cell in row {
@@ -162,7 +128,7 @@ public class SkypeExporterOutput {
         return csvResult.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding, error: nil);
 
     }
-    public func saveToHTML(usingSelectedPath path: String, data text: [[String]]) -> Bool {
+    public func saveToHTML(usingSelectedPath path: String, data text: [[String]], type:String) -> Bool {
 
         let dirs : [String]? = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String]
 /*        if ((dirs) != nil) {
@@ -176,8 +142,35 @@ public class SkypeExporterOutput {
             //reading
             let text2 = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil)
         }*/
-        var htmlResult="<html><body><table>"
+        var htmlResult="<html><head>"
+        htmlResult+="<style>"
+        htmlResult+="#customers {"
+        htmlResult+="font-family: \"Trebuchet MS\", Arial, Helvetica, sans-serif;"
+        htmlResult+="width: 100%;"
+        htmlResult+="border-collapse: collapse;"
+        htmlResult+="}"
+        htmlResult+="#customers td, #customers th {"
+        htmlResult+="font-size: 1em;"
+        htmlResult+="border: 1px solid #98bf21;"
+        htmlResult+="padding: 3px 7px 2px 7px;"
+        htmlResult+="}"
+        htmlResult+="#customers th {"
+        htmlResult+="font-size: 1.1em;"
+        htmlResult+="text-align: left;"
+        htmlResult+="padding-top: 5px;"
+        htmlResult+="padding-bottom: 4px;"
+        htmlResult+="background-color: #A7C942;"
+        htmlResult+="color: #ffffff;"
+        htmlResult+="}"
+        htmlResult+="#customers tr.alt td {"
+        htmlResult+="color: #000000;"
+        htmlResult+="background-color: #EAF2D3;"
+        htmlResult+="}"
+        htmlResult+="</style>"
+        htmlResult+="</head><body><table id='customers'>"
+        var i:Int=0
         for row in text {
+            var j:Int=0
             if row == text.first! {
                 htmlResult+="<thead><tr>"
                 for cell in row {
@@ -185,12 +178,26 @@ public class SkypeExporterOutput {
                 }
                 htmlResult+="</tr></thead><tbody>\n"
             } else {
-                htmlResult+="<tr>"
+                if type=="messages" {
+                    if row[1]==row[0] {
+                        htmlResult+="<tr class='alt'>"
+                    } else {
+                        htmlResult+="<tr>"
+                    }
+                } else {
+                    if i%2 == 1 {
+                        htmlResult+="<tr class='alt'>"
+                    } else {
+                        htmlResult+="<tr>"
+                    }
+                }
                 for cell in row {
                     htmlResult+="<td>\(cell)</td>"
                 }
                 htmlResult+="</tr>\n"
+                j++
             }
+            i++
         }
     
         htmlResult += "</tbody></table></body></html>"
