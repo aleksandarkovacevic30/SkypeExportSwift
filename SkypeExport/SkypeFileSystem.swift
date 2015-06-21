@@ -22,7 +22,18 @@ public class SkypeExporterOutput {
             var singlemessage:[String]=[]
             singlemessage+=[message.from]
             singlemessage+=[message.dialog_partner]
-            singlemessage+=[message.timestamp]
+            if let epochsAsInt=message.timestamp.toInt() {
+            let epochs:Double = Double(epochsAsInt);
+            let formattedTimestamp=printFormattedDate(NSDate(timeIntervalSince1970: epochs))
+            singlemessage+=[
+                formattedTimestamp
+            ]
+            } else {
+                singlemessage+=[
+                    ""
+                ]
+            }
+            
             singlemessage+=[message.message]
             messageData+=[singlemessage]
         }
