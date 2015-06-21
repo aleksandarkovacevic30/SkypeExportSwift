@@ -273,6 +273,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func loadMsgsForSingleContact(sender: AnyObject) {
         if let dbase=skypeDB {
             messages = dbase.getMessagesForSkypeContact(dialogPartner:"\(dialogPartner.stringValue)")
+            showMsg("Info",message: "Successfully loaded messages.")            
             
         } else {
             showMsg("Message Extractor",message:"Not connected to local Skype DB. Please go to configuration before extracting messages or contacts.")
