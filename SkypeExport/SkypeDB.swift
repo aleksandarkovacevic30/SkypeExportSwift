@@ -74,15 +74,19 @@ public class SkypeDB: MessagesManager, ContactsManager {
         if let dbase=self.db {
             let messages=dbase["Messages"]
             let convoids = getConversationIDsForSkypeContact(dialogPartner: "\(diaPartner)")
+            let convids=convoids.filter{ $0 != nil }.map{ $0! }
             let convo_id=Expression<Int?>("convo_id")
             let author = Expression<String?>("author")
             let dialog_partner = Expression<String?>("dialog_partner")
             let timeInEpochs = Expression<Int?>("timestamp")
             let body = Expression<String?>("body_xml")
+            
             let query = messages.select(author,dialog_partner,timeInEpochs,body,convo_id)           // SELECT "email" FROM "users"
             //TODO fix the issue with these stupid errors, or use just a regular text for messages
-            //                .filter(contains(convoids,convo_id))     // WHERE "name" IS NOT NULL
-            //.order(timeInEpochs.desc) // ORDER BY "email" DESC, "name"
+        
+            .filter(contains(convids,convo_id))     // WHERE "name" IS NOT NULL
+             // ORDER BY "email" DESC, "name"
+            .order(timeInEpochs.desc)
             var formattedTimestamp:String="";
             for message in query {
                 if let auth=message[author] {
